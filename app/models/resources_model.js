@@ -7,25 +7,26 @@ var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
 // Creates a "Book" model that matches up with DB
-var Book = sequelize.define("book", {
-  title: {
+var Resources_model = sequelize.define("resources_table", {
+  resource: {
     type: Sequelize.STRING
   },
-  author: {
+  category: {
     type: Sequelize.STRING
   },
-  genre: {
+  contact: {
     type: Sequelize.STRING
   },
-  pages: {
+  email: {
+    type: Sequelize.STRING
+  },
+  number: {
     type: Sequelize.INTEGER
   }
-}, {
-  timestamps: false
 });
 
 // Syncs with DB
-Book.sync();
+Resources_model.sync();
 
 // Makes the Book Model available for other files (will also create a table)
-module.exports = Book;
+module.exports = Resources_model;

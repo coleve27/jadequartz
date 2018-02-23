@@ -4,24 +4,24 @@
 
 // Dependencies
 // =============================================================
-var Book = require("../models/book.js");
+var Resources_model = require("../models/resources_model.js");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
   // Get all books
   app.get("/api/all", function(req, res) {
-    Book.findAll({}).then(function(results) {
+    Resources_model.findAll({}).then(function(results) {
       res.json(results);
     });
   });
 
   // Get a specific book
-  app.get("/api/:book", function(req, res) {
-    if (req.params.book) {
-      Book.findAll({
+  app.get("/api/:resource", function(req, res) {
+    if (req.params.resource) {
+      Resources_model.findAll({
         where: {
-          title: req.params.book
+          title: req.params.resource
         }
       }).then(function(results) {
         res.json(results);
@@ -30,11 +30,11 @@ module.exports = function(app) {
   });
 
   // Get all books of a specific genre
-  app.get("/api/genre/:genre", function(req, res) {
-    if (req.params.genre) {
-      Book.findAll({
+  app.get("/api/genre/:category", function(req, res) {
+    if (req.params.category) {
+      Resources_model.findAll({
         where: {
-          genre: req.params.genre
+          genre: req.params.category
         }
       }).then(function(results) {
         res.json(results);
@@ -43,11 +43,11 @@ module.exports = function(app) {
   });
 
   // Get all books from a specific author
-  app.get("/api/author/:author", function(req, res) {
-    if (req.params.author) {
-      Book.findAll({
+  app.get("/api/contact/:contact", function(req, res) {
+    if (req.params.contact) {
+      Resources_model.findAll({
         where: {
-          author: req.params.author
+          author: req.params.contact
         }
       }).then(function(results) {
         res.json(results);
@@ -56,50 +56,51 @@ module.exports = function(app) {
   });
 
   // Get all "long" books (books 300 pages or more)
-  app.get("/api/books/long", function(req, res) {
-    Book.findAll({
-      where: {
-        pages: {
-          $gte: 300
-        }
-      },
-      order: [["pages", "DESC"]]
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
+  // app.get("/api/books/long", function(req, res) {
+  //   Book.findAll({
+  //     where: {
+  //       pages: {
+  //         $gte: 300
+  //       }
+  //     },
+  //     order: [["pages", "DESC"]]
+  //   }).then(function(results) {
+  //     res.json(results);
+  //   });
+  // });
 
   // Get all "short" books (books 150 pages or less)
-  app.get("/api/books/short", function(req, res) {
-    Book.findAll({
-      where: {
-        pages: {
-          $lte: 150
-        }
-      },
-      order: [["pages", "ASC"]]
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
+  // app.get("/api/books/short", function(req, res) {
+  //   Book.findAll({
+  //     where: {
+  //       pages: {
+  //         $lte: 150
+  //       }
+  //     },
+  //     order: [["pages", "ASC"]]
+  //   }).then(function(results) {
+  //     res.json(results);
+  //   });
+  // });
 
   // Add a book
   app.post("/api/new", function(req, res) {
-    console.log("Book Data:");
+    console.log("Resource Data:");
     console.log(req.body);
-    Book.create({
-      title: req.body.title,
-      author: req.body.author,
-      genre: req.body.genre,
-      pages: req.body.pages
+    Resources_model.create({
+      resource: req.body.resource,
+      category: req.body.category,
+      contact: req.body.contact,
+      email: req.body.email,
+      number: req.body.number
     });
   });
 
   // Delete a book
   app.post("/api/delete", function(req, res) {
-    console.log("Book Data:");
+    console.log("Resource Data:");
     console.log(req.body);
-    Book.destroy({
+    Resources_model.destroy({
       where: {
         id: req.body.id
       }

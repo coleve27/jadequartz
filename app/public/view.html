@@ -13,18 +13,17 @@
 
 	</head>
 	<body>
-		
+
 		<div class="container">
 
 			<div class="jumbotron">
-				<h1>Express Library</h1>
-				<h3>Books Books Books!</h3>
+				<h1>AARC Resource Database</h1>
 				<hr>
-				<a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Books</a>
-        <a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Book</a>
-        <a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Books</a>
-        <a href="/long" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Long Books</a>
-        <a href="/short" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Short Books</a>
+				<a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Resources</a>
+        <a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Resource</a>
+        <a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Resources</a>
+        <!-- <a href="/long" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Long Books</a>
+        <a href="/short" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Short Books</a> -->
 			</div>
 			<div class="row">
 
@@ -32,10 +31,10 @@
 
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Book Search</strong></h3>
+							<h3 class="panel-title"><strong>Resource Search</strong></h3>
 						</div>
 						<div class="panel-body">
-							<input type="text" id="book-search" class="form-control" >
+							<input type="text" id="resource-search" class="form-control" >
 							<br>
 							<div class="text-right">
 								<button class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
@@ -45,18 +44,18 @@
 
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Author Search</strong></h3>
+							<h3 class="panel-title"><strong>Category Search</strong></h3>
 						</div>
 						<div class="panel-body">
-							<input type="text" id="author-search" class="form-control">
+							<input type="text" id="category-search" class="form-control">
 							<br>
 							<div class="text-right">
-								<button class="btn btn-primary btn-md" id="author-search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
+								<button class="btn btn-primary btn-md" id="category-search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</div>
 					</div>
 
-					<div class="panel panel-default">
+					<!-- <div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title"><strong>Genre Search</strong></h3>
 						</div>
@@ -67,23 +66,25 @@
 								<button class="btn btn-primary btn-md" id="genre-search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Book Search Results</strong></h3>
+							<h3 class="panel-title"><strong>Resource Search Results</strong></h3>
 						</div>
 						<div class="panel-body">
 							<div class="well" id="stats" hidden="true">
-								<h2 id="title"></h2>
+								<h2 id="resource"></h2>
 								<div>
-									<h3><strong>Author:</strong> <span id="author"></span></h3>
-									<h3><strong>Genre:</strong> <span id="genre"></span></h3>
+									<h3><strong>Category:</strong> <span id="category"></span></h3>
+									<h3><strong>Contact:</strong> <span id="contact"></span></h3>
+									<h3><strong>Email:</strong> <span id="email"></span></h3>
+									<h3><strong>Number:</strong> <span id="number"></span></h3>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>			
+				</div>
 			</div>
 		</div>
 

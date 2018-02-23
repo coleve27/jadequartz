@@ -3,55 +3,55 @@ $("#search-btn").on("click", function(event) {
   event.preventDefault();
 
   // Save the book they typed into the book-search input
-  var bookSearched = $("#book-search").val().trim();
+  var resourceSearched = $("#resource-search").val().trim();
 
   // Make an AJAX get request to our api, including the user's book in the url
-  $.get("/api/" + bookSearched, function(data) {
+  $.get("/api/" + resourceSearched, function(data) {
 
     console.log(data);
     // Call our renderBooks function to add our books to the page
-    renderBooks(data);
+    renderResources(data);
 
   });
 
 });
 
 // When user hits the author-search-btn
-$("#author-search-btn").on("click", function() {
+$("#category-search-btn").on("click", function() {
 
   // Save the authorthey typed into the author-search input
-  var authorSearched = $("#author-search").val().trim();
+  var categorySearched = $("#category-search").val().trim();
 
   // Make an AJAX get request to our api, including the user's author in the url
-  $.get("/api/author/" + authorSearched, function(data) {
+  $.get("/api/category/" + categorySearched, function(data) {
 
     // Log the data to the console
     console.log(data);
     // Call our renderBooks function to add our books to the page
-    renderBooks(data);
+    renderResources(data);
 
   });
 
 });
 
 // When user hits the genre-search-btn
-$("#genre-search-btn").on("click", function() {
+// $("#genre-search-btn").on("click", function() {
+//
+//   // Save the book they typed into the genre-search input
+//   var genreSearched = $("#genre-search").val().trim();
+//
+//   // Make an AJAX get request to our api, including the user's genre in the url
+//   $.get("/api/genre/" + genreSearched, function(data) {
+//
+//     console.log(data);
+//     // Call our renderBooks function to add our books to the page
+//     renderBooks(data);
+//
+//   });
+//
+// });
 
-  // Save the book they typed into the genre-search input
-  var genreSearched = $("#genre-search").val().trim();
-
-  // Make an AJAX get request to our api, including the user's genre in the url
-  $.get("/api/genre/" + genreSearched, function(data) {
-
-    console.log(data);
-    // Call our renderBooks function to add our books to the page
-    renderBooks(data);
-
-  });
-
-});
-
-function renderBooks(data) {
+function renderResources(data) {
   if (data.length !== 0) {
 
     $("#stats").empty();
@@ -61,11 +61,12 @@ function renderBooks(data) {
 
       var div = $("<div>");
 
-      div.append("<h2>" + data[i].title + "</h2>");
-      div.append("<p>Author: " + data[i].author + "</p>");
-      div.append("<p>Genre: " + data[i].genre + "</p>");
-      div.append("<p>Pages: " + data[i].pages + "</p>");
-      div.append("<button class='delete' data-id='" + data[i].id + "'>DELETE BOOK</button>");
+      div.append("<h2>" + data[i].resource + "</h2>");
+      div.append("<p>Category: " + data[i].category + "</p>");
+      div.append("<p>Contact: " + data[i].contact + "</p>");
+      div.append("<p>Email: " + data[i].email + "</p>");
+      div.append("<p>Number: " + data[i].number + "</p>");
+      div.append("<button class='delete' data-id='" + data[i].id + "'>DELETE RESOURCE</button>");
 
       $("#stats").append(div);
 
