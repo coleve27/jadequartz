@@ -21,7 +21,7 @@ module.exports = function(app) {
     if (req.params.resource) {
       Resources_model.findAll({
         where: {
-          title: req.params.resource
+        resource: req.params.resource
         }
       }).then(function(results) {
         res.json(results);
@@ -34,7 +34,7 @@ module.exports = function(app) {
     if (req.params.category) {
       Resources_model.findAll({
         where: {
-          genre: req.params.category
+          category: req.params.category
         }
       }).then(function(results) {
         res.json(results);
