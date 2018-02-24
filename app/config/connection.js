@@ -5,6 +5,7 @@
 // Dependencies
 var Sequelize = require("sequelize");
 
+
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize("aarc_db", "root", "root", {
   host: "localhost",
