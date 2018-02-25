@@ -6,32 +6,10 @@ var Sequelize = require("sequelize");
 // sequelize (lowercase) references my connection to the DB.
 var sequelize = require("../config/connection.js");
 
-// Creates a "Book" model that matches up with DB
-/*var Resources_model = sequelize.define("resources_table", {
-  resource: {
-    type: Sequelize.STRING
-  },
-  category: {
-    type: Sequelize.STRING
-  },
-  contact: {
-    type: Sequelize.STRING
-  },
-  email: {
-    type: Sequelize.STRING
-  },
-  number: {
-    type: Sequelize.INTEGER
-  }
-});
 
-// Syncs with DB
-Resources_model.sync(); 
-*/
-
-
-//Creat a "business_category" model that matches up with DB
-var category_model = sequelize.define("business_category", {
+//Create a "resources_category" model that matches up with DB. 
+// this is where our SQL table for "resources_table" will be created and defined
+var Resources_model = sequelize.define("resources_table", {
   username: {
     type: Sequelize.STRING
   },
@@ -47,25 +25,20 @@ var category_model = sequelize.define("business_category", {
   sub_category1: {
     type: Sequelize.STRING
   },
-  /*sub_category2: {
-    type: Sequelize.STRING
+  sub_category2: {
+    type: Sequelize.STRING,
+    defaultValue: null
   },
-  sub_category3: {
-    type: Sequelize.STRING
-  },
-  sub_category4: {
-    type: Sequelize.STRING
-  },*/
   ethnicity: {
     type: Sequelize.STRING
   },
   ethnicity2: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
     defaultValue: null
   },
-  /*ethnicity3: {
-    type: Sequelize.STRING
-  }*/
+  business_description: {
+    type: Sequelize.TEXT
+  },
   street_address: {
     type: Sequelize.STRING
   },
@@ -84,6 +57,12 @@ var category_model = sequelize.define("business_category", {
   business_email: {
     type: Sequelize.STRING
   },
+  business_url: {
+    type: Sequelize.STRING
+  },
+  business_fb: {
+    type: Sequelize.STRING
+  },
   main_contact: {
     type: Sequelize.STRING
   },
@@ -98,7 +77,7 @@ var category_model = sequelize.define("business_category", {
   }
 })
 
-category_model.sync();
+Resources_model.sync();
 
-// Makes the Book Model available for other files (will also create a table)
+// Makes the Resources Model available for other files (will also create a table)
 module.exports = Resources_model;
