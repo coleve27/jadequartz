@@ -1,5 +1,5 @@
 
-// Make a get request to our api route that will return every book
+// Make a get request to our api route that will return every resource
 $.get("/api/all", function(data) {
   // For each book that our server sends us back
   for (var i = 0; i < data.length; i++) {
@@ -12,35 +12,34 @@ $.get("/api/all", function(data) {
     // Append the well to the well section
     $("#well-section").append(wellSection);
 
-    // Now  we add our resource data to the well we just placed on the page
+    // Now we add our resource data to the well we just placed on the page
     $("#resource-well-" + i).append("<h2>" + (i + 1) + ". " + data[i].business_name + "</h2>");
-    $("#resource-well-" + i).append("<h3>Category: " + data[i].business_category + "</h4>");
-    $("#resource-well-" + i).append("<h3>Sub-Category: " + data[i].sub_category1 + "</h4>");
-    $("#resource-well-" + i).append("<h3>Ethnicity: " + data[i].ethnicity + "</h4>");
-    $("#resource-well-" + i).append("<h3>Description: " + data[i].business_description + "</h4>");
+    $("#resource-well-" + i).append("<p>Category: " + data[i].business_category + "</p>");
+    $("#resource-well-" + i).append("<p>Sub-Category: " + data[i].sub_category1 + "</p>");
+    $("#resource-well-" + i).append("<p>Ethnicity: " + data[i].ethnicity + "</p>");
+    $("#resource-well-" + i).append("<p>Description: " + data[i].business_description + "</p>");
 
-    $("#resource-well-" + i).append("<h3>Street Address: " + data[i].street_address + "</h4>");
-    $("#resource-well-" + i).append("<h3>City: " + data[i].business_city + "</h4>");
-    $("#resource-well-" + i).append("<h3>State: " + data[i].zip_code + "</h4>");
-    $("#resource-well-" + i).append("<h3>Business Number: " + data[i].phone_number+ "</h4>");
+    $("#resource-well-" + i).append("<p>Street Address: " + data[i].street_address + "</p>");
+    $("#resource-well-" + i).append("<p>City: " + data[i].business_city + "</p>");
+    $("#resource-well-" + i).append("<p>State: " + data[i].zip_code + "</p>");
+    $("#resource-well-" + i).append("<p>Business Number: " + data[i].phone_number+ "</p>");
 
-    $("#resource-well-" + i).append("<h3>Email: " + data[i].business_email + "</h4>");
-    $("#resource-well-" + i).append("<h3>Website: " + data[i].business_url + "</h4>");
-    $("#resource-well-" + i).append("<h3>Facebook: " + data[i].business_fb + "</h4>");
+    $("#resource-well-" + i).append("<p>Email: " + data[i].business_email + "</p>");
+    $("#resource-well-" + i).append("<p>Website: " + data[i].business_url + "</p>");
+    $("#resource-well-" + i).append("<p>Facebook: " + data[i].business_fb + "</p>");
 
 
-    $("#resource-well-" + i).append("<h3>Main Contact: " + data[i].main_contact + "</h4>");
-    $("#resource-well-" + i).append("<h3>Contact Title: " + data[i].contact_title + "</h4>");
-    $("#resource-well-" + i).append("<h3>Contact Phone: " + data[i].contact_phone + "</h4>");
-    $("#resource-well-" + i).append("<h3>Contact Email: " + data[i].contact_email+ "</h4>");
+    $("#resource-well-" + i).append("<p>Main Contact: " + data[i].main_contact + "</p>");
+    $("#resource-well-" + i).append("<p>Contact Title: " + data[i].contact_title + "</p>");
+    $("#resource-well-" + i).append("<p>Contact Phone: " + data[i].contact_phone + "</p>");
+    $("#resource-well-" + i).append("<p>Contact Email: " + data[i].contact_email+ "</p>");
   }
 });
 
 
 
 
-
-
+//do not delete this below
 // username:  
 // business_name: 
 // business_category: 

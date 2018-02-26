@@ -30,7 +30,7 @@ module.exports = function(app) {
   });
 
   // Get all books of a specific broad category
-  app.get("/api/genre/:business_category", function(req, res) {
+  app.get("/api/:business_category", function(req, res) {
     if (req.params.category) {
       Resources_model.findAll({
         where: {
