@@ -19,7 +19,7 @@ $("#search-btn").on("click", function(event) {
 // When user hits the category-search-btn
 $("#category-search-btn").on("click", function() {
 
-  // Save the authorthey typed into the category-search input
+  // Save the query they typed into the category-search input
   var categorySearched = $("#category-search").val().trim();
 
   // Make an AJAX get request to our api, including the user's author in the url

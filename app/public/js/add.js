@@ -1,18 +1,18 @@
 // The code in add.js handles what happens when the user clicks the "Add a book" button.
 
 // When user clicks add-btn
-$("#add-btn").on("click", function(event) {
+$("#add-btn").on("click", function (event) {
   event.preventDefault();
 
   // Make a newBook object
-  var newResource= {
+  var newResource = {
     // resource: $("#resource").val().trim(),
     // category: $("#category").val().trim(),
     // contact: $("#contact").val().trim(),
     // email: $("#email").val().trim(),
     // number: $('#number').val().trim()
-
     // username:  $("#username").val().trim(),
+
     business_name: $("#business_name").val().trim(),
     business_category: $("#business_category").val().trim(),
     // city_dept: $("#city_dept").val().trim(),
@@ -40,7 +40,7 @@ $("#add-btn").on("click", function(event) {
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newResource)
     // On success, run the following code
-    .then(function(data) {
+    .then(function (data) {
       // Log the data we found
       console.log(data);
     });
@@ -97,4 +97,4 @@ $("#add-btn").on("click", function(event) {
 // main_contact: 
 // contact_title: 
 // contact_phone: 
-// contact_email: 
+// contact_email:
