@@ -1,7 +1,7 @@
 {
   "name": "sequelize-library",
   "version": "1.0.0",
-  "description": "",
+  "description": "Jade Quartz is a community database project for the City of Austin's Asian American Resource Center. The growth of the Austin Asian Pacific Islander (API) population has led to increasing numbers of API-owned stores, restaurants, boutiques, religious organizations, community groups, non-profits, and news outlets. Jade Quartz will take in data about all these organizations into an easy-to-access database for AARC staff to use.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "auth0-lock": "^11.3.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
     "mysql": "^2.15.0",
     "mysql-server": "^1.0.5",
     "mysql2": "^1.5.2",
@@ -23,5 +25,14 @@
     "sequelize-cli": "^4.0.0",
     "sqlite3": "^3.1.13",
     "tedious": "^2.3.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://coleve27@github.com/coleve27/jadequartz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coleve27/jadequartz/issues"
+  },
+  "homepage": "https://github.com/coleve27/jadequartz#readme"
 }

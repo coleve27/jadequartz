@@ -1,4 +1,52 @@
-// When user hits the search-btn
+
+var options = {
+  auth: {
+       responseType: 'token id_token',
+       scope: 'openid'
+     },
+     autoclose: true,
+     oidcConformant: true,
+};
+
+var lock = new Auth0Lock(
+  'C3uimLj64ZbCZ3XxjiQ5T-mRt92h5u12',
+  'jdqtz.auth0.com',
+  options
+);
+
+lock.on("authenticated", function(authResult) {
+  // Use the token in authResult to getUserInfo() and save it to localStorage
+  lock.getUserInfo(authResult.accessToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+
+    document.getElementById('nick').textContent = profile.nickname;
+
+    localStorage.setItem('accessToken', authResult.accessToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
+    console.log(JSON.stringify(profile));
+
+    $.post("/api/login", authResult,)
+      // On success, run the following code
+      .then(function (data) {
+        // Log the data we found
+        console.log(data);
+      });
+
+
+    lock.hide();
+
+  });
+});
+
+
+lock.show();
+
+
+
+
 $("#search-btn").on("click", function(event) {
   event.preventDefault();
 
@@ -34,6 +82,8 @@ $("#category-search-btn").on("click", function() {
 
 });
 
+
+
 // When user hits the genre-search-btn
 // $("#genre-search-btn").on("click", function() {
 //
@@ -52,7 +102,7 @@ $("#category-search-btn").on("click", function() {
 // });
 
 
-///This will display the data found in the search page. 
+///This will display the data found in the search page.
 function renderResources(data) {
   if (data.length !== 0) {
 

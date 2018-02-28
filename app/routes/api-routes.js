@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var Resources_model = require("../models/resources_model.js");
-
+var jwt = require('jsonwebtoken');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -42,7 +42,7 @@ module.exports = function(app) {
     }
   });
 
-  // Get all books from a specific ethnicity 
+  // Get all books from a specific ethnicity
   app.get("/api/group/:ethnicity", function(req, res) {
     if (req.params.contact) {
       Resources_model.findAll({
@@ -95,7 +95,7 @@ module.exports = function(app) {
       // number: req.body.number
 //////
 
-username: req.body.username, 
+username: req.body.username,
 business_name: req.body.business_name,
 business_category: req.body.business_category,
 city_dept: req.body.city_dept,
@@ -103,7 +103,7 @@ sub_category1: req.body.sub_category1,
 sub_category2: req.body.sub_category2,
 ethnicity: req.body.ethnicity,
 ethnicity2:req.body.ethnicity2,
-business_description: req.body.business_description, 
+business_description: req.body.business_description,
 street_address: req.body.street_address,
 business_city: req.body.business_city,
 business_state: req.body.business_state,
@@ -129,4 +129,16 @@ contact_email: req.body.contact_email
       }
     });
   });
+
+  app.post("/api/login", function(req, res) {
+    //decide on jwt decoder//
+
+    //pull information from that decoder//
+
+    //get information and put in sequal//
+    console.log("Response", res.req.body.idToken);
+    var idToken = res.req.body.idToken;
+    var decoded = jwt.decode(idToken);
+    console.log(decoded) // bar
+    });
 };

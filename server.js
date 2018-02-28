@@ -7,6 +7,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -22,10 +23,19 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static("app/public"));
 
+
+var jwt = require('jsonwebtoken');
 // Routes
 // =============================================================
 require("./app/routes/api-routes.js")(app);
 require("./app/routes/html-routes.js")(app);
+
+//call jwt after routes//
+
+
+// verify a token symmetric - synchronous
+
+
 
 // Starts the server to begin listening
 // =============================================================
