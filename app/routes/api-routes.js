@@ -148,11 +148,8 @@ module.exports = function (app) {
   });
 }
 
-<<<<<<< HEAD
   app.post("/api/login", function (req, res) {
     //decide on jwt decoder//
-=======
->>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762
 
 //important examples
 //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
@@ -162,7 +159,6 @@ module.exports = function (app) {
 //     })
 // })
 
-<<<<<<< HEAD
     //get information and put in sequal//
     console.log("Response", res.req.body.idToken);
     var idToken = res.req.body.idToken;
@@ -170,28 +166,3 @@ module.exports = function (app) {
     console.log(decoded); // bar
   });
 };
-=======
-//important example
-  // app.post("/api/login", function(req, res) {
-  //   //decide on jwt decoder//
-  //
-  //   //pull information from that decoder//
-  //
-  //   //get information and put in sequal//
-  //   console.log("Response", res.req.body.idToken);
-  //   var idToken = res.req.body.idToken;
-  //   var decoded = jwt.decode(idToken);
-  //   // var decoded = jwt.decode(idToken, secretKey);
-  //
-  //   });
-  // }
-
-//IMPORTANT COMMENTS
-// express jwt npm library//
-//make secret a variable api route 163 example
-// switch bearer from access token to id idToken
-// add funky header to all API Routes
-// deploy and make database on heroku
-// connect database on Auth0//
-// add user to user model, and also to resource table when adding resource//
->>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762

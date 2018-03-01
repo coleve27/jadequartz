@@ -151,7 +151,6 @@ $(".delete").click(function() {
 });
 
 
-<<<<<<< HEAD
 
 
 
@@ -191,8 +190,6 @@ $(".delete").click(function() {
 // contact_phone: 
 // contact_email: 
 
-=======
->>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762
 
 
 //do not delete this below

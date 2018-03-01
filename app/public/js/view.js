@@ -38,10 +38,6 @@ lock.on("authenticated", function(authResult) {
       }
     });
 
-<<<<<<< HEAD
-=======
-//not sure this reqest is needed as a result of putting idToken in header//
->>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762
     $.post("/api/login", authResult)
       // On success, run the following code
       .then(function (data) {
