@@ -7,7 +7,7 @@
 var Resources_model = require("../models/resources_model.js");
 var jwt = require('express-jwt');
 // var jwt = require('jsonwebtoken');
-var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G"
+var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G";
 
 // Routes
 // =============================================================
@@ -60,9 +60,9 @@ module.exports = function (app) {
   });
 
 
-// TODO: See the code below, this should be what the
-//first line of both app.post (new and delete) look like if you are usig express jwt
-//("/api/new", jwt({secret: 'ham'}), function(req, res)
+  // TODO: See the code below, this should be what the
+  //first line of both app.post (new and delete) look like if you are usig express jwt
+  //("/api/new", jwt({secret: 'ham'}), function(req, res)
 
   // Add a book
   app.post("/api/new", function (req, res) {
@@ -146,23 +146,23 @@ module.exports = function (app) {
       }
     });
   });
-}
 
-  app.post("/api/login", function (req, res) {
-    //decide on jwt decoder//
 
-//important examples
-//   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
-//     db.record.create({
-//       userId: req.user.userId.split('|')[1],
-//       otherStuff: ''
-//     })
-// })
+app.post("/api/login", function (req, res) {
+  //decide on jwt decoder//
 
-    //get information and put in sequal//
-    console.log("Response", res.req.body.idToken);
-    var idToken = res.req.body.idToken;
-    var decoded = jwt.decode(idToken);
-    console.log(decoded); // bar
-  });
+  //important examples
+  //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
+  //     db.record.create({
+  //       userId: req.user.userId.split('|')[1],
+  //       otherStuff: ''
+  //     })
+  // })
+
+  //get information and put in sequal//
+  console.log("Response", res.req.body.idToken);
+  var idToken = res.req.body.idToken;
+  var decoded = jwt.decode(idToken);
+  console.log(decoded); // bar
+});
 };

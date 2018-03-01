@@ -89,6 +89,11 @@ $.get("/api/all", function(data) {
 
 */
 
+
+$(document).ready(function() {
+  $('select').material_select();
+});
+
 // Make a get request to our api route that will return every resource
 $.get("/api/all", function(data) {
   // For each book that our server sends us back
