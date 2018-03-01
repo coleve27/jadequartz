@@ -20,25 +20,25 @@ module.exports = function (app) {
   });
 
   // Get a specific book
-  app.get("/api/:business_name", function (req, res) {
-    if (req.params.business_name) {
-      Resources_model.findAll({
-        where: {
-          business_name: req.params.business_name
-        }
-      }).then(function (results) {
-        res.json(results);
-      });
-    }
-  });
+  // app.get("/api/:business_name", function (req, res) {
+  //   if (req.params.business_name) {
+  //     Resources_model.findAll({
+  //       where: {
+  //         business_name: req.params.business_name
+  //       }
+  //     }).then(function (results) {
+  //       res.json(results);
+  //     });
+  //   }
+  // });
 
 
-  // Get all books of a specific broad category
-  app.get("/api/:business_category", function (req, res) {
-    if (req.params.category) {
+  // Get all resources of a specific category
+  app.get("/api/:sub_category1", function (req, res) {
+    if (req.params.sub_category1) {
       Resources_model.findAll({
         where: {
-          business_category: req.params.business_category
+          sub_category1: req.params.sub_category1
         }
       }).then(function (results) {
         res.json(results);
@@ -48,7 +48,7 @@ module.exports = function (app) {
 
   // Get all books from a specific ethnicity
   app.get("/api/group/:ethnicity", function (req, res) {
-    if (req.params.contact) {
+    if (req.params.ethnicity) {
       Resources_model.findAll({
         where: {
           ethnicity: req.params.ethnicity
@@ -69,13 +69,7 @@ module.exports = function (app) {
     console.log("Resource Data:");
     console.log(req.body);
     Resources_model.create({
-      // resource: req.body.resource,
-      // category: req.body.category,
-      // contact: req.body.contact,
-      // email: req.body.email,
-      // number: req.body.number
-      //////
-
+      id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
       business_category: req.body.business_category,
@@ -107,6 +101,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     Resources_model.update({
+      id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
       business_category: req.body.business_category,
@@ -135,7 +130,6 @@ module.exports = function (app) {
     });
   });
 
-
   // Delete a book
   app.post("/api/delete", function (req, res) {
     console.log("Resource Data:");
@@ -148,21 +142,21 @@ module.exports = function (app) {
   });
 
 
-app.post("/api/login", function (req, res) {
-  //decide on jwt decoder//
+  app.post("/api/login", function (req, res) {
+    //decide on jwt decoder//
 
-  //important examples
-  //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
-  //     db.record.create({
-  //       userId: req.user.userId.split('|')[1],
-  //       otherStuff: ''
-  //     })
-  // })
+    //important examples
+    //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
+    //     db.record.create({
+    //       userId: req.user.userId.split('|')[1],
+    //       otherStuff: ''
+    //     })
+    // })
 
-  //get information and put in sequal//
-  console.log("Response", res.req.body.idToken);
-  var idToken = res.req.body.idToken;
-  var decoded = jwt.decode(idToken);
-  console.log(decoded); // bar
-});
+    //get information and put in sequal//
+    console.log("Response", res.req.body.idToken);
+    var idToken = res.req.body.idToken;
+    var decoded = jwt.decode(idToken);
+    console.log(decoded); // bar
+  });
 };

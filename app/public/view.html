@@ -23,7 +23,7 @@
 <body>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="app/js/materialize.min.js"></script>
+	<!-- <script type="text/javascript" src="app/js/materialize.min.js"></script> -->
 	<h2>Welcome
 		<span id="nick" class="nickname"></span>
 	</h2>
@@ -57,10 +57,10 @@
 							<select id="sub_category1">
 								<optgroup label="Non-Profit">
 									<option value="commerce">Commerce</option>
-									<option value="Community Organization">Community Organization</option>
+									<option value="community_organization">Community Organization</option>
 									<option value="ethnic_based">Ethnic-Based</option>
 									<option value="health_and_wellness">Health and Wellness</option>
-									<option value="religous">Religous</option>
+									<option value="religious">religious</option>
 									<option value="thater_and_arts">Theater and Arts</option>
 								</optgroup>
 								<optgroup label="City and Governement">
@@ -131,6 +131,10 @@
 							<label>Ethnicity</label>
 						</div>
 				</form>
+
+				<div class="text-right">
+					<button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-book"></span> SEARCH </button>
+				</div>
 				</div>
 
 
@@ -173,11 +177,23 @@
 					</div> -->
 
 			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">
+				
 						<h5>Resource Search Results</h5>
-					</h3>
-				</div>
+
+						<div class="panel-body" id="well-section">
+
+							<!-- Content will go in here -->
+	
+						</div>
+
+						<div class="panel-body">
+							<div class="well" id="stats">
+								<h2 id="title"></h2>
+							
+							</div>
+						</div>
+					
+				
 
 			</div>
 

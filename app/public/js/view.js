@@ -62,9 +62,12 @@ lock.show();
 
 $("#search-btn").on("click", function(event) {
   event.preventDefault();
+  console.log("this is selecting a sub-category");
 
   // Save the resource they typed into the resource search input
   var resourceSearched = $("#sub_category1").val();
+
+  console.log("This is what is chosen: " + resourceSearched);
 
   // Make an AJAX get request to our api, including the user's resource in the url
   $.get("/api/" + resourceSearched, function(data) {
@@ -78,22 +81,25 @@ $("#search-btn").on("click", function(event) {
 });
 
 // When user hits the ethnicity
-$("#ethnicity").on("select", function() {
+// $("#search-btn").on("click", function() {
+//   console.log("this is selecting an ethnicity");
 
-  // Save the query they typed into the category-search input
-  var categorySearched = $("#ethnicity").val();
+//   // Save the query they typed into the category-search input
+//   var categorySearched = $("#ethnicity").val();
 
-  // Make an AJAX get request to our api, including the user's author in the url
-  $.get("/api/" + categorySearched, function(data) {
+//   console.log("This is what is chosen: " +categorySearched);
 
-    // Log the data to the console
-    console.log(data);
-    // Call our renderBooks function to add our books to the page
-    renderResources(data);
+//   // Make an AJAX get request to our api, including the user's author in the url
+//   $.get("/api/" + categorySearched, function(data) {
 
-  });
+//     // Log the data to the console
+//     console.log(data);
+//     // Call our renderBooks function to add our books to the page
+//     renderResources(data);
 
-});
+//   });
+
+// });
 
 
 
@@ -124,29 +130,42 @@ function renderResources(data) {
 
     for (var i = 0; i < data.length; i++) {
 
-      var div = $("<div>");
+      var wellSection = $("<div>");
 
-          div.append("<h2>" + (i + 1) + ". " + data[i].business_name + "</h2>");
-          div.append("<p>Category: " + data[i].business_category + "</p>");
-          div.append("<p>Sub-Category: " + data[i].sub_category1 + "</p>");
-          div.append("<p>Ethnicity: " + data[i].ethnicity + "</p>");
-          div.append("<p>Description: " + data[i].business_description + "</p>");
+     // $("#well-section").append(wellSection);
 
-          div.append("<p>Street Address: " + data[i].street_address + "</p>");
-          div.append("<p>City: " + data[i].business_city + "</p>");
-          div.append("<p>State: " + data[i].zip_code + "</p>");
-          div.append("<p>Business Number: " + data[i].phone_number+ "</p>");
-          div.append("<p>Email: " + data[i].business_email + "</p>");
-          div.append("<p>Website: " + data[i].business_url + "</p>");
-          div.append("<p>Facebook: " + data[i].business_fb + "</p>");
 
-          div.append("<p>Main Contact: " + data[i].main_contact + "</p>");
-          div.append("<p>Contact Title: " + data[i].contact_title + "</p>");
-          div.append("<p>Contact Phone: " + data[i].contact_phone + "</p>");
-          div.append("<p>Contact Email: " + data[i].contact_email+ "</p>");
+        wellSection.append(
+        "<ul class='collapsible' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + ": " + data[i].sub_category1 +"</p></div>" +
+        "" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
+        "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
+    
+        "<td>" + data[i].street_address + "</td>"+
+        "<td>"+ data[i].business_city + "</td>"+
+        "<td>" + data[i].zip_code + "</td>"+
+        "<td>" + data[i].phone_number+ "</td>" +
+        "<td>" + data[i].business_email + "</td>"+
+        "<td>" + data[i].business_url + "</td>"+
+        "<td>" + data[i].business_fb + "</td></tr></tbody></div></table>" +
+        "<div class='card-panel teal lighten-2 white-text text-darken-2'>"+
+       "<p class='flow-text'><h5>Main Contact </h5></p>"+
+       "<table class='responsive-table'>"+
+       "<div class='container'><thead><tr><th>Contact Name</th><th>Title</th><th>Phone</th><th>Email</th></tr></thead>"+
+       "<tbody><tr>"+
+       
+       "<td>" + data[i].main_contact + "</td>"+
+       "<td>"+ data[i].contact_title + "</td>"+
+       "<td>" + data[i].contact_phone+ "</td>"+
+       "<td>" + data[i].contact_email+ "</td>" +
+       "</tr></tbody></table></div>"+
+       //insert buttons here
+       "<a class='email waves-effect waves-light btn modal-trigger' href='mailto:"+ data[i].business_email+ "' data-id='" + data[i].id + "'>EMAIL ORGANIZATION</a>"+
+       "<a class='delete waves-effect waves-light red btn' data-id='" + data[i].id + "'>DELETE RESOURCE</a></div></div>"+
+       "</li></ul>");
 
-          div.append("<button class='delete' data-id='" + data[i].id + "'>DELETE RESOURCE</button>");
-          $("#stats").append(div);
+      wellSection.append("<button class='delete' data-id='" + data[i].id + "'>DELETE RESOURCE</button>");
+      
+      $("#stats").append(wellSection);
 
     }
 

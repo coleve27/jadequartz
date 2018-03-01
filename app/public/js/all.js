@@ -99,7 +99,7 @@ $.get("/api/all", function(data) {
   // For each book that our server sends us back
   for (var i = 0; i < data.length; i++) {
 
-    // Create a parent div to hold book data
+    // Create a parent div to hold resource data
     var wellSection = $("<div>");
     // Add a class to this div: 'well'
     wellSection.addClass("well");
@@ -110,7 +110,7 @@ $.get("/api/all", function(data) {
 
     // Now we add our resource data to the well we just placed on the page
     $("#resource-well-" + i).append(
-      "<ul class='collapsible popout' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
+      "<ul class='collapsible popout collapsible accordion' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
       "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
       "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
   
