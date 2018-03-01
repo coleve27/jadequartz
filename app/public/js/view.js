@@ -28,7 +28,7 @@ lock.on("authenticated", function(authResult) {
     localStorage.setItem('profile', JSON.stringify(profile));
     console.log(JSON.stringify(profile));
 
-    $.post("/api/login", authResult,)
+    $.post("/api/login", authResult)
       // On success, run the following code
       .then(function (data) {
         // Log the data we found
@@ -51,7 +51,7 @@ $("#search-btn").on("click", function(event) {
   event.preventDefault();
 
   // Save the resource they typed into the resource search input
-  var resourceSearched = $("#resource-search").val().trim();
+  var resourceSearched = $("#sub_category1").val();
 
   // Make an AJAX get request to our api, including the user's resource in the url
   $.get("/api/" + resourceSearched, function(data) {
@@ -64,11 +64,11 @@ $("#search-btn").on("click", function(event) {
 
 });
 
-// When user hits the category-search-btn
-$("#category-search-btn").on("click", function() {
+// When user hits the ethnicity
+$("#ethnicity").on("select", function() {
 
   // Save the query they typed into the category-search input
-  var categorySearched = $("#category-search").val().trim();
+  var categorySearched = $("#ethnicity").val();
 
   // Make an AJAX get request to our api, including the user's author in the url
   $.get("/api/" + categorySearched, function(data) {
@@ -139,7 +139,7 @@ function renderResources(data) {
 
 
 // DELETE
-    $(".delete").click(function() {
+    $(".delete").click(function() { 
       var info = {
         id: $(this).attr("data-id")
       };

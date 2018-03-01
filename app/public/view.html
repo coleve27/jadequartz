@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-us">
-	<head>
 
-		<meta charset="UTF-8">
-		<script src="https://cdn.auth0.com/js/lock/11.3.0/lock.min.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>Express Library</title>
+<meta charset="UTF-8">
+<script src="https://cdn.auth0.com/js/lock/11.3.0/lock.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Community Resource </title>
 
 
-		<!-- Bootstrap CSS & JS TEST-->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+<!-- Bootstrap CSS & JS TEST-->
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 
 
 <!-- Compiled and minified CSS -->
@@ -27,49 +24,142 @@
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="app/js/materialize.min.js"></script>
- 	<h2>Welcome <span id="nick" class="nickname"></span></h2>
+	<h2>Welcome
+		<span id="nick" class="nickname"></span>
+	</h2>
 
-		<div class="container">
+	<div class="container">
 
-			<div class="jumbotron">
-				<h1>AARC Community Database</h1>
-				<hr>
-				<a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Resources</a>
-      			<a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Resource</a>
-        		<a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Resources</a>
+		<div class="jumbotron">
+			<h1>AARC Community Database</h1>
+			<hr>
+			<a href="/" class="btn btn-danger btn-lg">
+				<span class="glyphicon glyphicon-eye-open"></span> Search Resources</a>
+			<a href="/add" class="btn btn-danger btn-lg">
+				<span class="glyphicon glyphicon-plus"></span> Add New Resource</a>
+			<a href="/all" class="btn btn-danger btn-lg">
+				<span class="glyphicon glyphicon-th-list"></span> All Resources</a>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<h5>Search By Organization Type or Ethnicity</h5>
+				</h3>
 			</div>
 
 			<div class="row">
+				<form action="" method="POST" role="form" class="col s12">
 
-				<div class="col-lg-12">
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Resource Search</strong></h3>
+					<div class="row">
+						<div class="input-field col s6">
+							<select id="sub_category1">
+								<optgroup label="Non-Profit">
+									<option value="commerce">Commerce</option>
+									<option value="Community Organization">Community Organization</option>
+									<option value="ethnic_based">Ethnic-Based</option>
+									<option value="health_and_wellness">Health and Wellness</option>
+									<option value="religous">Religous</option>
+									<option value="thater_and_arts">Theater and Arts</option>
+								</optgroup>
+								<optgroup label="City and Governement">
+									<option value="boards_and_commissions">Boards and Commissions</option>
+									<option value="department">Department</option>
+									<option value="mayor_and_council">Mayor and Council</option>
+								</optgroup>
+								<optgroup label="Business">
+									<option value="arts_and_entertainment">Arts and Entertainment</option>
+									<option value="automotive">Automotive</option>
+									<option value="baby_kids_and_toys">Baby, Kids, and Toys</option>
+									<option value="bar">Bar</option>
+									<option value="cafe">Cafe</option>
+									<option value="cleaning_service">Cleaning Service</option>
+									<option value="clothes_and_apparel">Clothes and Apparel</option>
+									<option value="doctors_office">Doctors Office</option>
+									<option value="electronics">Electronics</option>
+									<option value="furniture">Furniture</option>
+									<option value="gas_and_fuel">Gas and Fuel</option>
+									<option value="grocery">Grocery</option>
+									<option value="gym">Gym</option>
+									<option value="health_and_beauty">Health and Beauty</option>
+									<option value="home_and_garden">Home and Garden</option>
+									<option value="hotel_and_motel">Hotel and Motel</option>
+									<option value="pets">Pets</option>
+									<option value="recreation">Recreation</option>
+									<option value="repair_services">Repair Services</option>
+									<option value="restaurant">Restaurant</option>
+									<option value="sports_and_outdoors">Sports and Outdoors</option>
+									<option value="theater_and_arts">Theater and Arts</option>
+								</optgroup>
+							</select>
+							<label>Organization Type</label>
 						</div>
-						<div class="panel-body">
-							<input type="text" id="resource-search" class="form-control" >
-							<br>
-							<div class="text-right">
-								<button class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
-							</div>
+
+						<div class="input-field col s6">
+							<select id="ethnicity">
+								<optgroup label="Ethnicity">
+									<option value="bangladeshi">Bangladeshi</option>
+									<option value="bhutanese">Bhutanese</option>
+									<option value="burmese">Burmese</option>
+									<option value="cambodian">Cambodian</option>
+									<option value="chinese">Chinese</option>
+									<option value="filipino">Filipino</option>
+									<option value="hispanic">Hispanic</option>
+									<option value="hmong">Hmong</option>
+									<option value="indian">Indian</option>
+									<option value="indonesian">Indonesian</option>
+									<option value="japanese">Japanese</option>
+									<option value="korean">Korean</option>
+									<option value="laotian">Laotian</option>
+									<option value="malaysian">Malaysian</option>
+									<option value="maldivian">Maldivian</option>
+									<option value="mongolian">Mongolian</option>
+									<option value="nepalese">Nepalese</option>
+									<option value="okinawan">Okinawan</option>
+									<option value="pakistani">Pakistani</option>
+									<option value="singaporean">Singaporean</option>
+									<option value="sri_lankan">Sri Lankan</option>
+									<option value="taiwanese">Taiwanese</option>
+									<option value="vietnamese">Vietnamese</option>
+								</optgroup>
+								<optgroup label="-------">
+									<option value="other_asian">Other Asian</option>
+									<option value="not_specified">Not Specified</option>
+								</optgroup>
+							</select>
+							<label>Ethnicity</label>
+						</div>
+				</form>
+				</div>
+
+
+				<!-- <div class="panel-body"> -->
+				<!-- <input type="text" id="resource-search" class="form-control"> -->
+				<!-- <div class="text-right">
+							<button class="btn btn-primary btn-md" id="search-btn">
+								<span class="glyphicon glyphicon-search"></span> Search</button>
+						</div> -->
+				<!-- </div> -->
+			</div>
+
+			<!-- <div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Search by Ethnicity</strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<input type="text" id="category-search" class="form-control">
+						<br>
+						<div class="text-right">
+							<button class="btn btn-primary btn-md" id="category-search-btn">
+								<span class="glyphicon glyphicon-search"></span> Search</button>
 						</div>
 					</div>
+				</div> -->
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Category Search</strong></h3>
-						</div>
-						<div class="panel-body">
-							<input type="text" id="category-search" class="form-control">
-							<br>
-							<div class="text-right">
-								<button class="btn btn-primary btn-md" id="category-search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
-							</div>
-						</div>
-					</div>
-
-					<!-- <div class="panel panel-default">
+			<!-- <div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title"><strong>Genre Search</strong></h3>
 						</div>
@@ -82,27 +172,22 @@
 						</div>
 					</div> -->
 
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Resource Search Results</strong></h3>
-						</div>
-						<div class="panel-body">
-							<div class="well" id="stats" hidden="true">
-								<h2 id="resource"></h2>
-								<div>
-									<h3><strong>Category:</strong> <span id="category"></span></h3>
-									<h3><strong>Contact:</strong> <span id="contact"></span></h3>
-									<h3><strong>Email:</strong> <span id="email"></span></h3>
-									<h3><strong>Number:</strong> <span id="number"></span></h3>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<h5>Resource Search Results</h5>
+					</h3>
 				</div>
-			</div>
-		</div>
 
-	<!-- Custom Script -->
-	<script src="js/view.js" type="text/javascript"></script>
-	</body>
+			</div>
+
+
+
+
+			<!-- Custom Script -->
+			<script src="js/view.js" type="text/javascript"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</body>
+
 </html>

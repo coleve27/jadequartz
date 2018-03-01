@@ -54,25 +54,66 @@ $.get("/api/all", function(data) {
 
     // Now we add our resource data to the well we just placed on the page
     $("#resource-well-" + i).append(
-      "<ul class='collapsible' data-collapsible='accordian'><li><div class='collapsible-header'><h2>" + (i + 1) + ". " + data[i].business_name + "</h2></div>" +
-      "<div class='collapsible-body'><p>Category: " + data[i].business_category + "</p>"+
-      "<p>Sub-Category: " + data[i].sub_category1 + "</p>"+
-      "<p>Ethnicity: " + data[i].ethnicity + "</p>"+
-      "<p>Description: " + data[i].business_description + "</p>"+
-      "<p>Street Address: " + data[i].street_address + "</p>"+
-      "<p>City: " + data[i].business_city + "</p>"+
-      "<p>State: " + data[i].zip_code + "</p>"+
-      "<p>Business Number: " + data[i].phone_number+ "</p>" +
-      "<p>Email: " + data[i].business_email + "</p>"+
-      "<p>Website: " + data[i].business_url + "</p>"+
-      "<p>Facebook: " + data[i].business_fb + "</p>"+
-      "<p>Main Contact: " + data[i].main_contact + "</p>"+
-      "<p>Contact Title: " + data[i].contact_title + "</p>"+
-      "<p>Contact Phone: " + data[i].contact_phone + "</p>"+
-      "<p>Contact Email: " + data[i].contact_email+ "</p></div></li></ul>"
-    );
-  }
+      "<ul class='collapsible popout' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
+      "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
+      "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
+  
+      "<td>" + data[i].street_address + "</td>"+
+      "<td>"+ data[i].business_city + "</td>"+
+      "<td>" + data[i].zip_code + "</td>"+
+      "<td>" + data[i].phone_number+ "</td>" +
+      "<td>" + data[i].business_email + "</td>"+
+      "<td>" + data[i].business_url + "</td>"+
+      "<td>" + data[i].business_fb + "</td></tr></tbody></div></table>" +
+      "<div class='card-panel teal lighten-2 white-text text-darken-2'>"+
+     "<p class='flow-text'><h5>Main Contact </h5></p>"+
+     "<table class='responsive-table'>"+
+     "<div class='container'><thead><tr><th>Contact Name</th><th>Title</th><th>Phone</th><th>Email</th></tr></thead>"+
+     "<tbody><tr>"+
+     
+     "<td>" + data[i].main_contact + "</td>"+
+     "<td>"+ data[i].contact_title + "</td>"+
+     "<td>" + data[i].contact_phone+ "</td>"+
+     "<td>" + data[i].contact_email+ "</td>" +
+     "</tr></tbody></table></div>"+
+     //insert buttons here
+     "<a class='email waves-effect waves-light btn modal-trigger' href='mailto:"+ data[i].business_email+ "' data-id='" + data[i].id + "'>EMAIL ORGANIZATION</a>"+
+     "<a class='delete waves-effect waves-light red btn' data-id='" + data[i].id + "'>DELETE RESOURCE</a></div></div>"+
+     "</li></ul>");
+    }
+
+
+  // DELETE
+$(".delete").click(function() {
+  var info = {
+    id: $(this).attr("data-id")
+  };
+  $.post("/api/delete", info)
+    // On success, run the following code
+    .then(function(deldata) {
+      // Log the data we found
+      console.log(deldata);
+      console.log("This resource has been deleted.");
+    });
+  $(this).closest("ul").remove();
+
 });
+
+
+
+
+
+
+});
+
+
+
+
+
+// "<p>Main Contact: " + data[i].main_contact + "</p>"+
+// "<p>Contact Title: " + data[i].contact_title + "</p>"+
+// "<p>Contact Phone: " + data[i].contact_phone + "</p>"+
+
 
 
 //do not delete this below
