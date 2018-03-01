@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(express.static("app/public"));
 
 
-var jwt = require('jsonwebtoken');
+
 // Routes
 // =============================================================
 require("./app/routes/api-routes.js")(app);

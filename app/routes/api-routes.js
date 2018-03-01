@@ -5,7 +5,10 @@
 // Dependencies
 // =============================================================
 var Resources_model = require("../models/resources_model.js");
-var jwt = require('jsonwebtoken');
+var jwt = require('express-jwt');
+// var jwt = require('jsonwebtoken');
+var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G"
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -55,33 +58,10 @@ module.exports = function(app) {
     }
   });
 
-  // Get all "long" books (books 300 pages or more)
-  // app.get("/api/books/long", function(req, res) {
-  //   Book.findAll({
-  //     where: {
-  //       pages: {
-  //         $gte: 300
-  //       }
-  //     },
-  //     order: [["pages", "DESC"]]
-  //   }).then(function(results) {
-  //     res.json(results);
-  //   });
-  // });
 
-  // Get all "short" books (books 150 pages or less)
-  // app.get("/api/books/short", function(req, res) {
-  //   Book.findAll({
-  //     where: {
-  //       pages: {
-  //         $lte: 150
-  //       }
-  //     },
-  //     order: [["pages", "ASC"]]
-  //   }).then(function(results) {
-  //     res.json(results);
-  //   });
-  // });
+// TODO: See the code below, this should be what the
+//first line of both app.post (new and delete) look like if you are usig express jwt
+//("/api/new", jwt({secret: 'ham'}), function(req, res)
 
   // Add a book
   app.post("/api/new", function(req, res) {
@@ -129,16 +109,37 @@ contact_email: req.body.contact_email
       }
     });
   });
+}
 
-  app.post("/api/login", function(req, res) {
-    //decide on jwt decoder//
 
-    //pull information from that decoder//
+//important examples
+//   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
+//     db.record.create({
+//       userId: req.user.userId.split('|')[1],
+//       otherStuff: ''
+//     })
+// })
 
-    //get information and put in sequal//
-    console.log("Response", res.req.body.idToken);
-    var idToken = res.req.body.idToken;
-    var decoded = jwt.decode(idToken);
-    console.log(decoded) // bar
-    });
-};
+//important example
+  // app.post("/api/login", function(req, res) {
+  //   //decide on jwt decoder//
+  //
+  //   //pull information from that decoder//
+  //
+  //   //get information and put in sequal//
+  //   console.log("Response", res.req.body.idToken);
+  //   var idToken = res.req.body.idToken;
+  //   var decoded = jwt.decode(idToken);
+  //   // var decoded = jwt.decode(idToken, secretKey);
+  //
+  //   });
+  // }
+
+//IMPORTANT COMMENTS
+// express jwt npm library//
+//make secret a variable api route 163 example
+// switch bearer from access token to id idToken
+// add funky header to all API Routes
+// deploy and make database on heroku
+// connect database on Auth0//
+// add user to user model, and also to resource table when adding resource//

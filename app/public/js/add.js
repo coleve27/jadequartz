@@ -36,7 +36,12 @@ $("#add-btn").on("click", function (event) {
 
 
   };
-
+  $.ajaxSetup({
+    beforeSend: function(xhr) {
+      console.log(localStorage.getItem('idToken'));
+      xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('idToken'));
+    }
+  });
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newResource)
     // On success, run the following code
@@ -77,24 +82,24 @@ $("#add-btn").on("click", function (event) {
 
 
 
-// username:  
-// business_name: 
-// business_category: 
-// city_dept: 
-// sub_category1: 
-// sub_category2: 
+// username:
+// business_name:
+// business_category:
+// city_dept:
+// sub_category1:
+// sub_category2:
 // ethnicity:
-// ethnicity2: 
-// business_description: 
-// street_address: 
-// business_city: 
-// business_state: 
-// zip_code: 
-// phone_number: 
-// business_email: 
-// business_url: 
-// business_fb: 
-// main_contact: 
-// contact_title: 
-// contact_phone: 
+// ethnicity2:
+// business_description:
+// street_address:
+// business_city:
+// business_state:
+// zip_code:
+// phone_number:
+// business_email:
+// business_url:
+// business_fb:
+// main_contact:
+// contact_title:
+// contact_phone:
 // contact_email:
