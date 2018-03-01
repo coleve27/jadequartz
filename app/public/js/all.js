@@ -1,3 +1,54 @@
+// var options = {
+//   auth: {
+//        responseType: 'token id_token',
+//        scope: 'openid'
+//      },
+//      autoclose: true,
+//      oidcConformant: true,
+// };
+//
+// var lock = new Auth0Lock(
+//   'C3uimLj64ZbCZ3XxjiQ5T-mRt92h5u12',
+//   'jdqtz.auth0.com',
+//   options
+// );
+//
+// lock.on("authenticated", function(authResult) {
+//   // Use the token in authResult to getUserInfo() and save it to localStorage
+//   lock.getUserInfo(authResult.accessToken, function(error, profile) {
+//     if (error) {
+//       // Handle error
+//       return;
+//     }
+//
+//     document.getElementById('nick').textContent = profile.nickname;
+//
+//     localStorage.setItem('accessToken', authResult.accessToken);
+//     localStorage.setItem('profile', JSON.stringify(profile));
+//     // console.log(JSON.stringify(profile));
+//
+//     $.ajaxSetup({
+//       beforeSend: function(xhr) {
+//         xhr.setRequestHeader('Authorization', 'Bearer ' + authResult.idToken);
+//       }
+//     });
+//
+//     $.post("/api/login", authResult)
+//       // On success, run the following code
+//       .then(function (data) {
+//         // Log the data we found
+//         console.log(data);
+//       });
+//
+//
+//     lock.hide();
+//
+//   });
+// });
+//
+//
+// lock.show();
+
 
 /*// Make a get request to our api route that will return every resource
 $.get("/api/all", function(data) {
@@ -100,6 +151,7 @@ $(".delete").click(function() {
 });
 
 
+<<<<<<< HEAD
 
 
 
@@ -139,5 +191,29 @@ $(".delete").click(function() {
 // contact_phone: 
 // contact_email: 
 
+=======
+>>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762
 
 
+//do not delete this below
+// username:
+// business_name:
+// business_category:
+// city_dept:
+// sub_category1:
+// sub_category2:
+// ethnicity:
+// ethnicity2:
+// business_description:
+// street_address:
+// business_city:
+// business_state:
+// zip_code:
+// phone_number:
+// business_email:
+// business_url:
+// business_fb:
+// main_contact:
+// contact_title:
+// contact_phone:
+// contact_email:

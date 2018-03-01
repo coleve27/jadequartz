@@ -15,6 +15,7 @@
     "auth0-lock": "^11.3.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
     "jsonwebtoken": "^8.1.1",
     "mysql": "^2.15.0",
     "mysql-server": "^1.0.5",

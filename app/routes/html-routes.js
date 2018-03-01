@@ -7,8 +7,8 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-
-
+// var jwt = require('express-jwt');
+// var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G";
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -33,13 +33,13 @@ module.exports = function(app) {
   });
 
   // short route loads the short.html page, where short books in the db are displayed
-  app.get("/short", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/short.html"));
-  });
-
-  // long route loads the long.html page, where long books in the db are displayed
-  app.get("/long", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/long.html"));
-  });
+  // app.get("/short", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/short.html"));
+  // });
+  //
+  // // long route loads the long.html page, where long books in the db are displayed
+  // app.get("/long", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/long.html"));
+  // });
 
 };

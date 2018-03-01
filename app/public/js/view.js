@@ -1,4 +1,6 @@
 
+
+
 var options = {
   auth: {
        responseType: 'token id_token',
@@ -24,10 +26,22 @@ lock.on("authenticated", function(authResult) {
 
     document.getElementById('nick').textContent = profile.nickname;
 
+    localStorage.setItem('idToken', authResult.idToken);
     localStorage.setItem('accessToken', authResult.accessToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
-    console.log(JSON.stringify(profile));
 
+    localStorage.setItem('profile', JSON.stringify(profile));
+    // console.log(JSON.stringify(profile));
+
+    $.ajaxSetup({
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer ' + authResult.idToken);
+      }
+    });
+
+<<<<<<< HEAD
+=======
+//not sure this reqest is needed as a result of putting idToken in header//
+>>>>>>> 32aeeecace3c9b7998d2aef0a15c467c4ab0e762
     $.post("/api/login", authResult)
       // On success, run the following code
       .then(function (data) {
