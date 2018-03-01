@@ -1,3 +1,8 @@
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
 // The code in add.js handles what happens when the user clicks the "Add a book" button.
 
 // When user clicks add-btn
@@ -14,16 +19,16 @@ $("#add-btn").on("click", function (event) {
     // username:  $("#username").val().trim(),
 
     business_name: $("#business_name").val().trim(),
-    business_category: $("#business_category").val().trim(),
+    //business_category: $("#business_category").val(),
     // city_dept: $("#city_dept").val().trim(),
-    sub_category1: $("#sub_category1").val().trim(),
+    sub_category1: $("#sub_category1").val(),
     // sub_category2: $("#sub_category2").val().trim(),
-    ethnicity: $("#ethnicity").val().trim(),
+    ethnicity: $("#ethnicity").val(),
     // ethnicity2: $("#ethnicity2").val().trim(),
     business_description: $("#business_description").val().trim(),
     street_address: $("#street_address").val().trim(),
     business_city: $("#business_city").val().trim(),
-    business_state: $("#business_state").val().trim(),
+    business_state: $("#business_state").val(),
     zip_code: $("#zip_code").val().trim(),
     phone_number: $("#phone_number").val().trim(),
     business_email: $("#business_email").val().trim(),
@@ -48,12 +53,12 @@ $("#add-btn").on("click", function (event) {
   // Empty each input box by replacing the value with an empty string
   $("#username").val("");
   $("#business_name").val("");
-  $("#business_category").val("");
-  $("#city_dept").val("");
+  //$("#business_category").val("");
+  //$("#city_dept").val("");
   $("#sub_category1").val("");
-  $("#sub_category2").val("");
+  //$("#sub_category2").val("");
   $("#ethnicity").val("");
-  $("#ethnicity2").val("");
+  //$("#ethnicity2").val("");
   $("#business_description").val("");
   $("#street_address").val("");
   $("#business_city").val("");

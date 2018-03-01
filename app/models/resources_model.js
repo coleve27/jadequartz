@@ -14,7 +14,9 @@ var Resources_model = sequelize.define("resources_table", {
     type: Sequelize.STRING
   },
   business_name: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    primaryKey: true,
+    unique: true
   },
   business_category: {
     type: Sequelize.STRING
