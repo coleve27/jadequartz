@@ -83,7 +83,7 @@ module.exports = function (app) {
 
     console.log("Resource Data:");
     console.log(req.body);
-    
+
     Resources_model.create({
       id: req.body.id,
       username: req.body.username,
@@ -171,7 +171,7 @@ module.exports = function (app) {
 
 
 
-    //important examples
+    // important examples
     //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
     //     db.record.create({
     //       userId: req.user.userId.split('|')[1],
