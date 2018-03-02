@@ -146,7 +146,8 @@ module.exports = function (app) {
   });
 
   // Delete a book
-  app.post("/api/delete", function (req, res) {
+  app.post("/api/delete", jwt ({ secret: publicKey }),
+  function (req, res)  {
     console.log("Resource Data:");
     console.log(req.body);
     Resources_model.destroy({

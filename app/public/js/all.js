@@ -219,3 +219,12 @@ $(".delete").click(function() {
 // contact_title:
 // contact_phone:
 // contact_email:
+
+var idToken = localStorage.getItem('idToken');
+if(idToken){
+  $.ajaxSetup({
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + idToken);
+    }
+  });
+}

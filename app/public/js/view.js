@@ -34,21 +34,20 @@ lock.on("authenticated", function(authResult) {
 
     localStorage.setItem('profile', JSON.stringify(profile));
     // console.log(JSON.stringify(profile));
-
+    console.log('hello');
     $.ajaxSetup({
       beforeSend: function(xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer ' + authResult.idToken);
       }
     });
 
-    $.post("/api/login", authResult)
-      // On success, run the following code
-      .then(function (data) {
-        // Log the data we found
-        console.log(data);
-      });
-
-
+    // $.post("/api/login", authResult)
+    //   // On success, run the following code
+    //   .then(function (data) {
+    //     // Log the data we found
+    //     console.log(data);
+    //   });
+ 
     lock.hide();
 
   });
