@@ -92,6 +92,7 @@ $.get("/api/all", function(data) {
 
 $(document).ready(function() {
   $('select').material_select();
+  $(".button-collapse").sideNav();
 });
 
 // Make a get request to our api route that will return every resource
