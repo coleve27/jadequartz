@@ -4,7 +4,8 @@
 
 // Dependencies
 // =============================================================
-var Resources_model = require("../models/resources_model.js");
+// var Resources_model = require("../models/resources_model.js");
+var db = require("../models");
 var jwt = require('express-jwt');
 // var jwt = require('jsonwebtoken');
 var secret = "2dW0QPvyuKgd_vcdGt-gV5Si_OFiPyWF4qCScP0dVifBr5uxfymFwXuAVO3LGO5o";
@@ -12,13 +13,13 @@ var secret = "2dW0QPvyuKgd_vcdGt-gV5Si_OFiPyWF4qCScP0dVifBr5uxfymFwXuAVO3LGO5o";
 var fs = require('fs');
 var publicKey = fs.readFileSync('./jdqtz.cer');
 
-
+console.log("api routes called");
 // Routes
 // =============================================================
 module.exports = function (app) {
   // Get all books
   app.get("/api/all", function (req, res) {
-    Resources_model.findAll({}).then(function (results) {
+    db.Resources_model.findAll({}).then(function (results) {
       res.json(results);
     });
   });
@@ -40,7 +41,7 @@ module.exports = function (app) {
   // Get all resources of a specific category
   app.get("/api/:sub_category1", function (req, res) {
     if (req.params.sub_category1) {
-      Resources_model.findAll({
+      db.Resources_model.findAll({
         where: {
           sub_category1: req.params.sub_category1
         }
@@ -53,7 +54,7 @@ module.exports = function (app) {
   // Get all books from a specific ethnicity
   app.get("/api/group/:ethnicity", function (req, res) {
     if (req.params.ethnicity) {
-      Resources_model.findAll({
+      db.Resources_model.findAll({
         where: {
           ethnicity: req.params.ethnicity
         }
@@ -84,7 +85,7 @@ module.exports = function (app) {
     console.log("Resource Data:");
     console.log(req.body);
 
-    Resources_model.create({
+    db.Resources_model.create({
       id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
@@ -117,7 +118,7 @@ module.exports = function (app) {
     console.log("Data to be updated: ");
     console.log(req.body);
 
-    Resources_model.update({
+    db.Resources_model.update({
       id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
@@ -155,7 +156,7 @@ module.exports = function (app) {
   function (req, res)  {
     console.log("Resource Data:");
     console.log(req.body);
-    Resources_model.destroy({
+    db.Resources_model.destroy({
       where: {
         id: req.body.id
       }

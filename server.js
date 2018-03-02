@@ -6,7 +6,8 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-var db = require("./app/models/resources_model");
+var db = require("./app/models");
+
 
 // Sets up the Express App
 // =============================================================
@@ -27,8 +28,10 @@ app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
-require("./app/routes/api-routes.js")(app);
-require("./app/routes/html-routes.js")(app);
+
+// var routes = require
+// require("./app/routes/api-routes.js")(app);
+// require("./app/routes/html-routes.js")(app);
 
 //call jwt after routes//
 
