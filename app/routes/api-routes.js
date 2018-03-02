@@ -7,7 +7,11 @@
 var Resources_model = require("../models/resources_model.js");
 var jwt = require('express-jwt');
 // var jwt = require('jsonwebtoken');
-var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G";
+var secret = "2dW0QPvyuKgd_vcdGt-gV5Si_OFiPyWF4qCScP0dVifBr5uxfymFwXuAVO3LGO5o";
+
+var fs = require('fs');
+var publicKey = fs.readFileSync('./jdqtz.cer');
+
 
 // Routes
 // =============================================================
@@ -64,8 +68,19 @@ module.exports = function (app) {
   //first line of both app.post (new and delete) look like if you are usig express jwt
   //("/api/new", jwt({secret: 'ham'}), function(req, res)
 
+  /* 
+  app.get('/protected',
+  jwt({secret: 'shhhhhhared-secret'}),
+  function(req, res) {
+    if (!req.user.admin) return res.sendStatus(401);
+    res.sendStatus(200);
+  });
+  */
+
   // Add a book
-  app.post("/api/new", function (req, res) {
+  app.post("/api/new", jwt ({ secret: publicKey }),
+  function (req, res) {
+    
     console.log("Resource Data:");
     console.log(req.body);
     Resources_model.create({
@@ -140,10 +155,15 @@ module.exports = function (app) {
       }
     });
   });
+}
 
-
-  app.post("/api/login", function (req, res) {
+  // app.post("/api/login", 
+  //function (req, res) {
+    //if (!req.user.admin) return res.sendStatus(401);
+   // res.sendStatus(200);
     //decide on jwt decoder//
+
+    
 
     //important examples
     //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
@@ -154,9 +174,9 @@ module.exports = function (app) {
     // })
 
     //get information and put in sequal//
-    console.log("Response", res.req.body.idToken);
-    var idToken = res.req.body.idToken;
-    var decoded = jwt.decode(idToken);
-    console.log(decoded); // bar
-  });
-};
+   //console.log("Response", res.req.body.idToken);
+    //var idToken = res.req.body.idToken;
+    //var decoded = jwt.decode(idToken);
+    //console.log(decoded); // bar
+ // });
+//
