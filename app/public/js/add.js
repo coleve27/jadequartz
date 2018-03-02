@@ -53,12 +53,16 @@ $("#add-btn").on("click", function (event) {
   });
   // Send an AJAX POST-request with jQuery
   $.post("/api/new", newResource)
-    // On success, run the following code
-    .then(function (data) {
-      // Log the data we found
-      console.log(data);
-      
-    });
+  // On success, run the following code
+  .then(function (data) {
+    // Log the data we found
+    console.log(data);
+    if(data && data.errors){
+      alert(data.errors[0].message)
+    } else {
+      alert("added")
+    }
+  }); 
 
   // Empty each input box by replacing the value with an empty string
   $("#username").val("");
