@@ -10,16 +10,11 @@ var sequelize = require("../config/connection.js");
 //Create a "resources_category" model that matches up with DB. 
 // this is where our SQL table for "resources_table" will be created and defined
 var Resources_model = sequelize.define("resources_table", {
-  id: {
-    type: Sequelize.INTEGER,
-    omitNull: true
-  },
   username: {
     type: Sequelize.STRING
   },
   business_name: {
     type: Sequelize.STRING,
-    primaryKey: true,
     unique: true
   },
   business_category: {

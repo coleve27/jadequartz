@@ -92,7 +92,10 @@ $.get("/api/all", function(data) {
 
 $(document).ready(function() {
   $('select').material_select();
+  $('.modal').modal();
 });
+
+
 
 // Make a get request to our api route that will return every resource
 $.get("/api/all", function(data) {
@@ -110,6 +113,7 @@ $.get("/api/all", function(data) {
 
     // Now we add our resource data to the well we just placed on the page
     $("#resource-well-" + i).append(
+      "<script>$(document).ready(function(){$('.collapsible').collapsible();}); </script>"+
       "<ul class='collapsible popout collapsible accordion' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
       "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
       "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
@@ -134,7 +138,8 @@ $.get("/api/all", function(data) {
      "</tr></tbody></table></div>"+
      //insert buttons here
      "<a class='email waves-effect waves-light btn modal-trigger' href='mailto:"+ data[i].business_email+ "' data-id='" + data[i].id + "'>EMAIL ORGANIZATION</a>"+
-     "<a class='delete waves-effect waves-light red btn' data-id='" + data[i].id + "'>DELETE RESOURCE</a></div></div>"+
+     "<a class='delete waves-effect waves-light red btn' data-id='" + data[i].id + "'>DELETE RESOURCE</a>"+
+     "<a class='waves-effect waves-light blue btn modal-trigger' href='#modal1' data-id='" + data[i].id + "'>UPDATE RESOURCE</a></div></div>"+
      "</li></ul>");
     }
 
@@ -154,6 +159,24 @@ $(".delete").click(function() {
   $(this).closest("ul").remove();
 
 });
+
+$(".update").click(function() {
+  var info = {
+    id: $(this).attr("data-id")
+  };
+  $.post("/api/update", info)
+    // On success, run the following code
+    .then(function(updateData) {
+      // Log the data we found
+      console.log(updateData);
+      console.log("This resource has been updated.");
+    });
+  //$(this).closest("ul").remove();
+
+});
+
+
+
 
 
 

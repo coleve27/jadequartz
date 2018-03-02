@@ -107,7 +107,7 @@ module.exports = function (app) {
       contact_title: req.body.contact_title,
       contact_phone: req.body.contact_phone,
       contact_email: req.body.contact_email
-    });
+    }).then(data=>res.json(data),err=>res.json(err));
   });
 
   //TEST THIS
@@ -142,7 +142,10 @@ module.exports = function (app) {
     }, {
       where: {
         id: req.body.id
-      }
+      }.then(function (results) {
+        //res.json(results);
+        console.log(results);
+      })
     });
   });
 
