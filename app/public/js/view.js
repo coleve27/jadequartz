@@ -1,6 +1,8 @@
 $(document).ready(function () {
   $('select').material_select();
   $('.collapsible').collapsible();
+  $(".button-collapse").sideNav();
+  
 
   var content = '<div class="modal-content"><p>my content</p></div>';
         
@@ -8,6 +10,7 @@ $(document).ready(function () {
         $('.modal').modal();
 
 });
+
 
 
 

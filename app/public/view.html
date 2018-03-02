@@ -17,38 +17,50 @@
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<!-- <script type="text/javascript" src="app/js/materialize.min.js"></script> -->
-	<h2>Welcome
-		<span id="nick" class="nickname"></span>
-	</h2>
+	<script type="text/javascript" src="app/js/materialize.min.js"></script>
 
-	<div class="container">
-
-		<div class="jumbotron">
-			<h1>AARC Community Database</h1>
-			<hr>
-			<a href="/" class="btn btn-danger btn-lg">
-				<span class="glyphicon glyphicon-eye-open"></span> Search Resources</a>
-			<a href="/add" class="btn btn-danger btn-lg">
-				<span class="glyphicon glyphicon-plus"></span> Add New Resource</a>
-			<a href="/all" class="btn btn-danger btn-lg">
-				<span class="glyphicon glyphicon-th-list"></span> All Resources</a>
-		</div>
-
-
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					<h5>Search By Organization Type or Ethnicity</h5>
-				</h3>
+			
+	<nav>
+			<div class="nav-wrapper">
+			  <a href="#!" class="brand-logo"><img class="logoSize" src ="/images/logo.png"></a>
+			  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+						<li><a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Resources</a></li>
+						<li><a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Resource</a></li>
+						<li><a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Resources</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="/">Search Resources</a></li>
+					<li><a href="/add">Add New Resource</a></li>
+					<li><a href="/all">All Resources</a></li>
+				</ul>
 			</div>
+	</nav>
 
+
+	<div class="headerbg">
+		<div class="containerTop">
+			<div class="container">
+				<div class="top-left">
+						<h2>Welcome
+								<span id="nick" class="nickname"></span>
+						</h2>
+				</div>
+				<div class="bottom-left">
+					<h3>Search By Organization Type or Ethnicity</h3>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+
+	<div class="container spaceForTop">
 			<div class="row">
 				<form action="" method="POST" role="form" class="col s12">
 
