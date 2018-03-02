@@ -112,7 +112,8 @@ module.exports = function (app) {
 
   //TEST THIS
   // Update a specific resource
-  app.put("/api/update", function (req, res) {
+  app.put("/api/update",  jwt ({ secret: publicKey }),
+  function (req, res)  {
     console.log("Data to be updated: ");
     console.log(req.body);
 
