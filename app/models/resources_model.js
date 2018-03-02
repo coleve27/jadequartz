@@ -12,67 +12,67 @@
 module.exports = function(sequelize, Datatypes){
 var Resources_model = sequelize.define("resources_table", {
   username: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   business_name: {
-    type: DataTypes.STRING,
+    type: Datatypes.STRING,
     unique: true
   },
   business_category: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   city_dept: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   sub_category1: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   sub_category2: {
-    type: DataTypes.STRING,
+    type: Datatypes.STRING,
     defaultValue: null
   },
   ethnicity: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   ethnicity2: {
-    type: DataTypes.STRING,
+    type: Datatypes.STRING,
     defaultValue: null
   },
   business_description: {
-    type: DataTypes.TEXT
+    type: Datatypes.TEXT
   },
   street_address: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   business_city: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   business_state: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   zip_code: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   phone_number: {
-    type: DataTypes.INTEGER
+    type: Datatypes.INTEGER
   },
   business_email: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   business_url: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   business_fb: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   main_contact: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   contact_title: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   contact_phone: {
-    type: DataTypes.STRING
+    type: Datatypes.STRING
   },
   contact_email: {
     type: Datatypes.STRING
