@@ -53,6 +53,7 @@ $("#add-btn").on("click", function (event) {
     .then(function (data) {
       // Log the data we found
       console.log(data);
+      
     });
 
   // Empty each input box by replacing the value with an empty string

@@ -18,18 +18,6 @@ var sequelize = new Sequelize("aarc_db", "root", "root", {
   }
 })
 
-if(process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-
-} else {
-  connection = mysql.createConnection({
-    port: 8889,
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "aarc_db"
-  });
-}
 
 // Exports the connection for other files to use
 module.exports = sequelize;

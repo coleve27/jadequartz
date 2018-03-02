@@ -68,7 +68,7 @@ module.exports = function (app) {
   //first line of both app.post (new and delete) look like if you are usig express jwt
   //("/api/new", jwt({secret: 'ham'}), function(req, res)
 
-  /* 
+  /*
   app.get('/protected',
   jwt({secret: 'shhhhhhared-secret'}),
   function(req, res) {
@@ -80,9 +80,10 @@ module.exports = function (app) {
   // Add a book
   app.post("/api/new", jwt ({ secret: publicKey }),
   function (req, res) {
-    
+
     console.log("Resource Data:");
     console.log(req.body);
+    
     Resources_model.create({
       id: req.body.id,
       username: req.body.username,
@@ -158,13 +159,13 @@ module.exports = function (app) {
   });
 }
 
-  // app.post("/api/login", 
+  // app.post("/api/login",
   //function (req, res) {
     //if (!req.user.admin) return res.sendStatus(401);
    // res.sendStatus(200);
     //decide on jwt decoder//
 
-    
+
 
     //important examples
     //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
