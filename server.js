@@ -6,7 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-var db = require("./models");
+var db = require("./app/models/resources_model");
 
 // Sets up the Express App
 // =============================================================
