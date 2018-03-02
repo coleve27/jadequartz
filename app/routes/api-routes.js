@@ -19,9 +19,12 @@ console.log("api routes called");
 module.exports = function (app) {
   // Get all books
   app.get("/api/all", function (req, res) {
-    db.Resources_model.findAll({}).then(function (results) {
+    db.resources_table.findAll({}).then(function (results) {
       res.json(results);
     });
+    // db.Resources_model.findAll({}).then(function (results) {
+    //   res.json(results);
+    // });
   });
 
   // Get a specific book
@@ -41,7 +44,7 @@ module.exports = function (app) {
   // Get all resources of a specific category
   app.get("/api/:sub_category1", function (req, res) {
     if (req.params.sub_category1) {
-      db.Resources_model.findAll({
+      db.resources_table.findAll({
         where: {
           sub_category1: req.params.sub_category1
         }
@@ -54,7 +57,7 @@ module.exports = function (app) {
   // Get all books from a specific ethnicity
   app.get("/api/group/:ethnicity", function (req, res) {
     if (req.params.ethnicity) {
-      db.Resources_model.findAll({
+      db.resources_table.findAll({
         where: {
           ethnicity: req.params.ethnicity
         }
@@ -85,7 +88,7 @@ module.exports = function (app) {
     console.log("Resource Data:");
     console.log(req.body);
 
-    db.Resources_model.create({
+    db.resources_table.create({
       id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
@@ -118,7 +121,7 @@ module.exports = function (app) {
     console.log("Data to be updated: ");
     console.log(req.body);
 
-    db.Resources_model.update({
+    db.resources_table.update({
       id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
@@ -156,7 +159,7 @@ module.exports = function (app) {
   function (req, res)  {
     console.log("Resource Data:");
     console.log(req.body);
-    db.Resources_model.destroy({
+    db.resources_table.destroy({
       where: {
         id: req.body.id
       }
