@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "aarc_db",
-    "host": "127.0.0.1",
+    "username": "wojgrz4r7qkyvgq4",
+    "password": "y51bsejddlq7cqsn",
+    "database": "a6kabfocvgt8nbiu",
+    "host": "r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "wojgrz4r7qkyvgq4",
+    "password": "y51bsejddlq7cqsn",
+    "database": "a6kabfocvgt8nbiu",
+    "host": "r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "p264hnhaontgduhx",
-    "password": "opn0n2bghkj9gg99",
-    "database": "odu67hira3w4h9cz",
-    "host": "mnwax9mxzow0k7hi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "wojgrz4r7qkyvgq4",
+    "password": "y51bsejddlq7cqsn",
+    "database": "a6kabfocvgt8nbiu",
+    "host": "r4919aobtbi97j46.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
-  }
+}
 }
