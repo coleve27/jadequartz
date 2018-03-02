@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+<meta charset="UTF-8">
+<title>Community Database!</title>
+
+<!-- Bootstrap CSS & JS TEST-->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!--<script type="text/javascript" src="app/js/materialize.min.js"></script>-->
+
+
+		<div class="container">
+
+
+			<div class="row">
+					<form action="" method="POST" role="form" class="col s12">
+					  <div class="row">
+						<div class="input-field col s12">
+						  <input placeholder="" id="business_name" type="text" class="validate">
+						  <label for="business_name">Organization Name</label>
+						</div>
+					  </div>	
+					  <div class="row">
+							<div class="input-field col s6">
+									<select id="sub_category1">
+									  <optgroup label="Non-Profit">
+										<option value="commerce">Commerce</option>
+										<option value="community_organization">Community Organization</option>
+										<option value="ethnic_based">Ethnic-Based</option>
+										<option value="health_and_wellness">Health and Wellness</option>
+										<option value="religious">Religious</option>
+										<option value="thater_and_arts">Theater and Arts</option>										
+									  </optgroup>
+									  <optgroup label="City and Governement">
+										<option value="boards_and_commissions">Boards and Commissions</option>											
+										<option value="department">Department</option>
+										<option value="mayor_and_council">Mayor and Council</option>
+									  </optgroup>
+									  <optgroup label="Business">
+										<option value="arts_and_entertainment">Arts and Entertainment</option>
+										<option value="automotive">Automotive</option>
+										<option value="baby_kids_and_toys">Baby, Kids, and Toys</option>
+										<option value="bar">Bar</option>
+										<option value="cafe">Cafe</option>
+										<option value="cleaning_service">Cleaning Service</option>
+										<option value="clothes_and_apparel">Clothes and Apparel</option>
+										<option value="doctors_office">Doctors Office</option>
+										<option value="electronics">Electronics</option>
+										<option value="furniture">Furniture</option>
+										<option value="gas_and_fuel">Gas and Fuel</option>
+										<option value="grocery">Grocery</option>
+										<option value="gym">Gym</option>
+										<option value="health_and_beauty">Health and Beauty</option>
+										<option value="home_and_garden">Home and Garden</option>
+										<option value="hotel_and_motel">Hotel and Motel</option>
+										<option value="pets">Pets</option>
+										<option value="recreation">Recreation</option>
+										<option value="repair_services">Repair Services</option>
+										<option value="restaurant">Restaurant</option>
+										<option value="sports_and_outdoors">Sports and Outdoors</option>
+										<option value="theater_and_arts">Theater and Arts</option>	
+									  </optgroup>
+									</select>
+									<label>Organization Type</label>
+							</div>
+							<div class="input-field col s6">
+									<select id="ethnicity">
+									  <optgroup label="Ethnicity">
+										<option value="bangladeshi">Bangladeshi</option>
+										<option value="bhutanese">Bhutanese</option>
+										<option value="burmese">Burmese</option>
+										<option value="cambodian">Cambodian</option>
+										<option value="chinese">Chinese</option>
+										<option value="filipino">Filipino</option>
+										<option value="hispanic">Hispanic</option>
+										<option value="hmong">Hmong</option>
+										<option value="indian">Indian</option>
+										<option value="indonesian">Indonesian</option>
+										<option value="japanese">Japanese</option>
+										<option value="korean">Korean</option>
+										<option value="laotian">Laotian</option>
+										<option value="malaysian">Malaysian</option>
+										<option value="maldivian">Maldivian</option>										
+										<option value="mongolian">Mongolian</option>
+										<option value="nepalese">Nepalese</option>
+										<option value="okinawan">Okinawan</option>
+										<option value="pakistani">Pakistani</option>
+										<option value="singaporean">Singaporean</option>
+										<option value="sri_lankan">Sri Lankan</option>
+										<option value="taiwanese">Taiwanese</option>
+										<option value="vietnamese">Vietnamese</option>
+									 </optgroup>
+									 <optgroup label="-------">
+										<option value="other_asian">Other Asian</option>
+										<option value="not_specified">Not Specified</option>
+									 </optgroup>
+									</select>
+									<label>Ethnicity</label>
+							</div>
+					  </div>
+					  <div class="row">
+							<div class="input-field col s12">
+							  <input placeholder="" id="business_description" type="text" class="validate">
+							  <label for="business_description">Description</label>
+							</div>
+					  </div>
+					  <div class="row">
+							<div class="input-field col s4">
+							  <input placeholder="" id="street_address" type="text" class="validate">
+							  <label for="street_address">Address</label>
+							</div>
+							<div class="input-field col s4">
+									<input placeholder="" id="business_city" type="text" class="validate">
+									<label for="business_city">City</label>
+							</div>
+							<div class="input-field col s4">
+								<select id="business_state">
+									<optgroup label="State">
+										<option value="texas">Texas</option>
+									</optgroup>
+								</select>
+								<label>State</label>	
+						    </div>
+					 </div>
+					 <div class="row">
+					 	<div class="input-field col s4">
+							<input placeholder="" id="zip_code" type="text" class="validate">
+							<label for="zip_code">Zip Code</label>
+						  </div>
+						  <div class="input-field col s4">
+								<input placeholder="" id="phone_number" type="text" class="validate">
+								<label for="phone_number">Phone Number</label>
+						   </div>
+						   <div class="input-field col s4">
+								<input placeholder="" id="business_email" type="email" class="validate">
+								<label for="business_email">Business Email</label>
+						   </div>		
+					 </div>
+					 <div class="row">
+						<div class="input-field col s6">
+								<input placeholder="" id="business_url" type="text" class="validate">
+								<label for="business_url">Website</label>
+						</div>
+						<div class="input-field col s6">
+								<input placeholder="" id="business_fb" type="text" class="validate">
+								<label for="business_fb">Facebook Address</label>
+						</div>
+					 </div>
+					 <div class="row">
+							<div class="input-field col s6">
+									<input placeholder="" id="main_contact" type="text" class="validate">
+									<label for="main_contact">Main Contact</label>
+							</div>
+							<div class="input-field col s6">
+									<input placeholder="" id="contact_title" type="text" class="validate">
+									<label for="contact_title">Contact Title</label>
+							</div>
+					 </div>
+					 <div class="row">
+							<div class="input-field col s6">
+									<input placeholder="" id="contact_phone" type="text" class="validate">
+									<label for="contact_phone">Contact Phone Number</label>
+							</div>
+							<div class="input-field col s6">
+									<input placeholder="" id="contact_email" type="text" class="validate">
+									<label for="contact_email">Contact Email</label>
+							</div>
+					 </div>			
+					  
+					</form>
+					<br>
+					<div class="text-right">
+						<button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-book"></span> Add a Contact</button>
+					</div>
+				  </div>
+
+
+		</div>
+
+	<!-- Custom Script -->
+	<script src="js/add.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	
+	</body>
+</html>

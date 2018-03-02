@@ -7,7 +7,11 @@
 var Resources_model = require("../models/resources_model.js");
 var jwt = require('express-jwt');
 // var jwt = require('jsonwebtoken');
-var ham = "P6VuDoaScYM5MbA4Oz-onsTjuVbQFTWcOO9ZkD2w3Dd5B43lMXYppWTp1U_b7e4G";
+var secret = "2dW0QPvyuKgd_vcdGt-gV5Si_OFiPyWF4qCScP0dVifBr5uxfymFwXuAVO3LGO5o";
+
+var fs = require('fs');
+var publicKey = fs.readFileSync('./jdqtz.cer');
+
 
 // Routes
 // =============================================================
@@ -20,25 +24,25 @@ module.exports = function (app) {
   });
 
   // Get a specific book
-  app.get("/api/:business_name", function (req, res) {
-    if (req.params.business_name) {
-      Resources_model.findAll({
-        where: {
-          business_name: req.params.business_name
-        }
-      }).then(function (results) {
-        res.json(results);
-      });
-    }
-  });
+  // app.get("/api/:business_name", function (req, res) {
+  //   if (req.params.business_name) {
+  //     Resources_model.findAll({
+  //       where: {
+  //         business_name: req.params.business_name
+  //       }
+  //     }).then(function (results) {
+  //       res.json(results);
+  //     });
+  //   }
+  // });
 
 
-  // Get all books of a specific broad category
-  app.get("/api/:business_category", function (req, res) {
-    if (req.params.category) {
+  // Get all resources of a specific category
+  app.get("/api/:sub_category1", function (req, res) {
+    if (req.params.sub_category1) {
       Resources_model.findAll({
         where: {
-          business_category: req.params.business_category
+          sub_category1: req.params.sub_category1
         }
       }).then(function (results) {
         res.json(results);
@@ -48,7 +52,7 @@ module.exports = function (app) {
 
   // Get all books from a specific ethnicity
   app.get("/api/group/:ethnicity", function (req, res) {
-    if (req.params.contact) {
+    if (req.params.ethnicity) {
       Resources_model.findAll({
         where: {
           ethnicity: req.params.ethnicity
@@ -64,18 +68,24 @@ module.exports = function (app) {
   //first line of both app.post (new and delete) look like if you are usig express jwt
   //("/api/new", jwt({secret: 'ham'}), function(req, res)
 
+  /*
+  app.get('/protected',
+  jwt({secret: 'shhhhhhared-secret'}),
+  function(req, res) {
+    if (!req.user.admin) return res.sendStatus(401);
+    res.sendStatus(200);
+  });
+  */
+
   // Add a book
-  app.post("/api/new", function (req, res) {
+  app.post("/api/new", jwt ({ secret: publicKey }),
+  function (req, res) {
+
     console.log("Resource Data:");
     console.log(req.body);
+    
     Resources_model.create({
-      // resource: req.body.resource,
-      // category: req.body.category,
-      // contact: req.body.contact,
-      // email: req.body.email,
-      // number: req.body.number
-      //////
-
+      id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
       business_category: req.body.business_category,
@@ -97,16 +107,18 @@ module.exports = function (app) {
       contact_title: req.body.contact_title,
       contact_phone: req.body.contact_phone,
       contact_email: req.body.contact_email
-    });
+    }).then(data=>res.json(data),err=>res.json(err));
   });
 
   //TEST THIS
   // Update a specific resource
-  app.put("/api/update", function (req, res) {
+  app.put("/api/update",  jwt ({ secret: publicKey }),
+  function (req, res)  {
     console.log("Data to be updated: ");
     console.log(req.body);
 
     Resources_model.update({
+      id: req.body.id,
       username: req.body.username,
       business_name: req.body.business_name,
       business_category: req.body.business_category,
@@ -131,13 +143,16 @@ module.exports = function (app) {
     }, {
       where: {
         id: req.body.id
-      }
+      }.then(function (results) {
+        //res.json(results);
+        console.log(results);
+      })
     });
   });
 
-
   // Delete a book
-  app.post("/api/delete", function (req, res) {
+  app.post("/api/delete", jwt ({ secret: publicKey }),
+  function (req, res)  {
     console.log("Resource Data:");
     console.log(req.body);
     Resources_model.destroy({
@@ -146,23 +161,28 @@ module.exports = function (app) {
       }
     });
   });
+}
+
+  // app.post("/api/login",
+  //function (req, res) {
+    //if (!req.user.admin) return res.sendStatus(401);
+   // res.sendStatus(200);
+    //decide on jwt decoder//
 
 
-app.post("/api/login", function (req, res) {
-  //decide on jwt decoder//
 
-  //important examples
-  //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
-  //     db.record.create({
-  //       userId: req.user.userId.split('|')[1],
-  //       otherStuff: ''
-  //     })
-  // })
+    //important examples
+    //   app.post('/api/addNew', jwt(secret: 'ham'), function(req, res){
+    //     db.record.create({
+    //       userId: req.user.userId.split('|')[1],
+    //       otherStuff: ''
+    //     })
+    // })
 
-  //get information and put in sequal//
-  console.log("Response", res.req.body.idToken);
-  var idToken = res.req.body.idToken;
-  var decoded = jwt.decode(idToken);
-  console.log(decoded); // bar
-});
-};
+    //get information and put in sequal//
+   //console.log("Response", res.req.body.idToken);
+    //var idToken = res.req.body.idToken;
+    //var decoded = jwt.decode(idToken);
+    //console.log(decoded); // bar
+ // });
+//

@@ -16,7 +16,8 @@ var sequelize = new Sequelize("aarc_db", "root", "root", {
     min: 0,
     idle: 10000
   }
-});
+})
+
 
 // Exports the connection for other files to use
 module.exports = sequelize;
