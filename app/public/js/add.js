@@ -1,7 +1,11 @@
 
   $(document).ready(function() {
     $('select').material_select();
+
+    $(".button-collapse").sideNav();
   });
+
+
 
 // The code in add.js handles what happens when the user clicks the "Add a book" button.
 
