@@ -29,9 +29,9 @@ app.use(express.static("app/public"));
 // Routes
 // =============================================================
 
-// var routes = require
-// require("./app/routes/api-routes.js")(app);
-// require("./app/routes/html-routes.js")(app);
+var routes = require
+require("./app/routes/api-routes.js")(app);
+require("./app/routes/html-routes.js")(app);
 
 //call jwt after routes//
 
