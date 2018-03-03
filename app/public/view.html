@@ -6,11 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Community Resource </title>
 
-
 <!-- Bootstrap CSS & JS TEST-->
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
-
 
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -21,208 +19,157 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="app/js/materialize.min.js"></script>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img class="logoSize" src="/images/logo.png"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Resources</a></li>
+                <li><a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Resource</a></li>
+                <li><a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Resources</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="/">Search Resources</a></li>
+                <li><a href="/add">Add New Resource</a></li>
+                <li><a href="/all">All Resources</a></li>
+            </ul>
+        </div>
+    </nav>
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="app/js/materialize.min.js"></script>
-
-			
-	<nav>
-			<div class="nav-wrapper">
-			  <a href="#!" class="brand-logo"><img class="logoSize" src ="/images/logo.png"></a>
-			  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
-						<li><a href="/" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Search Resources</a></li>
-						<li><a href="/add" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Resource</a></li>
-						<li><a href="/all" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Resources</a></li>
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="/">Search Resources</a></li>
-					<li><a href="/add">Add New Resource</a></li>
-					<li><a href="/all">All Resources</a></li>
-				</ul>
-			</div>
-	</nav>
-
-
-	<div class="headerbg">
-		<div class="containerTop">
-			<div class="container">
-				<div class="top-left">
-						<h2>Welcome
+    <div class="headerbg">
+        <div class="containerTop">
+            <div class="container">
+                <div class="top-left">
+                    <h2>Welcome
 								<span id="nick" class="nickname"></span>
 						</h2>
-				</div>
-				<div class="bottom-left">
-					<h3>Search By Organization Type or Ethnicity</h3>
-				</div>
-			</div>	
-		</div>
-	</div>
+                </div>
+                <div class="bottom-left">
+                    <h3>Search By Organization Type or Ethnicity</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container spaceForTop">
+        <div class="row">
+            <form action="" method="POST" role="form" class="col s12">
 
-	<div class="container spaceForTop">
-			<div class="row">
-				<form action="" method="POST" role="form" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="sub_category1">
+                            <optgroup label="Non-Profit">
+                                <option value="commerce">Commerce</option>
+                                <option value="community_organization">Community Organization</option>
+                                <option value="ethnic_based">Ethnic-Based</option>
+                                <option value="health_and_wellness">Health and Wellness</option>
+                                <option value="religious">religious</option>
+                                <option value="theater_and_arts">Theater and Arts</option>
+                            </optgroup>
+                            <optgroup label="City and Governement">
+                                <option value="boards_and_commissions">Boards and Commissions</option>
+                                <option value="department">Department</option>
+                                <option value="mayor_and_council">Mayor and Council</option>
+                            </optgroup>
+                            <optgroup label="Business">
+                                <option value="arts_and_entertainment">Arts and Entertainment</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="baby_kids_and_toys">Baby, Kids, and Toys</option>
+                                <option value="bar">Bar</option>
+                                <option value="cafe">Cafe</option>
+                                <option value="cleaning_service">Cleaning Service</option>
+                                <option value="clothes_and_apparel">Clothes and Apparel</option>
+                                <option value="doctors_office">Doctors Office</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="gas_and_fuel">Gas and Fuel</option>
+                                <option value="grocery">Grocery</option>
+                                <option value="gym">Gym</option>
+                                <option value="health_and_beauty">Health and Beauty</option>
+                                <option value="home_and_garden">Home and Garden</option>
+                                <option value="hotel_and_motel">Hotel and Motel</option>
+                                <option value="pets">Pets</option>
+                                <option value="recreation">Recreation</option>
+                                <option value="repair_services">Repair Services</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="sports_and_outdoors">Sports and Outdoors</option>
+                                <option value="theater_and_arts">Theater and Arts</option>
+                            </optgroup>
+                        </select>
+                        <label>Organization Type</label>
+                    </div>
 
-					<div class="row">
-						<div class="input-field col s6">
-							<select id="sub_category1">
-								<optgroup label="Non-Profit">
-									<option value="commerce">Commerce</option>
-									<option value="community_organization">Community Organization</option>
-									<option value="ethnic_based">Ethnic-Based</option>
-									<option value="health_and_wellness">Health and Wellness</option>
-									<option value="religious">religious</option>
-									<option value="thater_and_arts">Theater and Arts</option>
-								</optgroup>
-								<optgroup label="City and Governement">
-									<option value="boards_and_commissions">Boards and Commissions</option>
-									<option value="department">Department</option>
-									<option value="mayor_and_council">Mayor and Council</option>
-								</optgroup>
-								<optgroup label="Business">
-									<option value="arts_and_entertainment">Arts and Entertainment</option>
-									<option value="automotive">Automotive</option>
-									<option value="baby_kids_and_toys">Baby, Kids, and Toys</option>
-									<option value="bar">Bar</option>
-									<option value="cafe">Cafe</option>
-									<option value="cleaning_service">Cleaning Service</option>
-									<option value="clothes_and_apparel">Clothes and Apparel</option>
-									<option value="doctors_office">Doctors Office</option>
-									<option value="electronics">Electronics</option>
-									<option value="furniture">Furniture</option>
-									<option value="gas_and_fuel">Gas and Fuel</option>
-									<option value="grocery">Grocery</option>
-									<option value="gym">Gym</option>
-									<option value="health_and_beauty">Health and Beauty</option>
-									<option value="home_and_garden">Home and Garden</option>
-									<option value="hotel_and_motel">Hotel and Motel</option>
-									<option value="pets">Pets</option>
-									<option value="recreation">Recreation</option>
-									<option value="repair_services">Repair Services</option>
-									<option value="restaurant">Restaurant</option>
-									<option value="sports_and_outdoors">Sports and Outdoors</option>
-									<option value="theater_and_arts">Theater and Arts</option>
-								</optgroup>
-							</select>
-							<label>Organization Type</label>
-						</div>
+                    <div class="input-field col s6">
+                        <select id="ethnicity">
+                            <optgroup label="Ethnicity">
+                                <option value="bangladeshi">Bangladeshi</option>
+                                <option value="bhutanese">Bhutanese</option>
+                                <option value="burmese">Burmese</option>
+                                <option value="cambodian">Cambodian</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="filipino">Filipino</option>
+                                <option value="hispanic">Hispanic</option>
+                                <option value="hmong">Hmong</option>
+                                <option value="indian">Indian</option>
+                                <option value="indonesian">Indonesian</option>
+                                <option value="japanese">Japanese</option>
+                                <option value="korean">Korean</option>
+                                <option value="laotian">Laotian</option>
+                                <option value="malaysian">Malaysian</option>
+                                <option value="maldivian">Maldivian</option>
+                                <option value="mongolian">Mongolian</option>
+                                <option value="nepalese">Nepalese</option>
+                                <option value="okinawan">Okinawan</option>
+                                <option value="pakistani">Pakistani</option>
+                                <option value="singaporean">Singaporean</option>
+                                <option value="sri_lankan">Sri Lankan</option>
+                                <option value="taiwanese">Taiwanese</option>
+                                <option value="vietnamese">Vietnamese</option>
+                            </optgroup>
+                            <optgroup label="-------">
+                                <option value="other_asian">Other Asian</option>
+                                <option value="not_specified">Not Specified</option>
+                            </optgroup>
+                        </select>
+                        <label>Ethnicity</label>
+                    </div>
+            </form>
 
-						<div class="input-field col s6">
-							<select id="ethnicity">
-								<optgroup label="Ethnicity">
-									<option value="bangladeshi">Bangladeshi</option>
-									<option value="bhutanese">Bhutanese</option>
-									<option value="burmese">Burmese</option>
-									<option value="cambodian">Cambodian</option>
-									<option value="chinese">Chinese</option>
-									<option value="filipino">Filipino</option>
-									<option value="hispanic">Hispanic</option>
-									<option value="hmong">Hmong</option>
-									<option value="indian">Indian</option>
-									<option value="indonesian">Indonesian</option>
-									<option value="japanese">Japanese</option>
-									<option value="korean">Korean</option>
-									<option value="laotian">Laotian</option>
-									<option value="malaysian">Malaysian</option>
-									<option value="maldivian">Maldivian</option>
-									<option value="mongolian">Mongolian</option>
-									<option value="nepalese">Nepalese</option>
-									<option value="okinawan">Okinawan</option>
-									<option value="pakistani">Pakistani</option>
-									<option value="singaporean">Singaporean</option>
-									<option value="sri_lankan">Sri Lankan</option>
-									<option value="taiwanese">Taiwanese</option>
-									<option value="vietnamese">Vietnamese</option>
-								</optgroup>
-								<optgroup label="-------">
-									<option value="other_asian">Other Asian</option>
-									<option value="not_specified">Not Specified</option>
-								</optgroup>
-							</select>
-							<label>Ethnicity</label>
-						</div>
-				</form>
-
-				<div class="text-right">
-					<button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-book"></span> SEARCH </button>
-				</div>
-				</div>
-
-
-				<!-- <div class="panel-body"> -->
-				<!-- <input type="text" id="resource-search" class="form-control"> -->
-				<!-- <div class="text-right">
-							<button class="btn btn-primary btn-md" id="search-btn">
-								<span class="glyphicon glyphicon-search"></span> Search</button>
-						</div> -->
-				<!-- </div> -->
-			</div>
-
-			<!-- <div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">
-							<strong>Search by Ethnicity</strong>
-						</h3>
+			<div class="row"></div>
+				<div class= "col s6">
+					<div class="text-right">
+						<button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-book"></span> SEARCH </button>
 					</div>
-					<div class="panel-body">
-						<input type="text" id="category-search" class="form-control">
-						<br>
-						<div class="text-right">
-							<button class="btn btn-primary btn-md" id="category-search-btn">
-								<span class="glyphicon glyphicon-search"></span> Search</button>
-						</div>
+				</div>
+				<div class= "col s6">
+					<div class="text-right">
+						<button type="submit" class="btn btn-primary btn-md" id="search-btn-ethnicity"><span class="glyphicon glyphicon-book"></span> SEARCH </button>
 					</div>
-				</div> -->
-
-			<!-- <div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title"><strong>Genre Search</strong></h3>
-						</div>
-						<div class="panel-body">
-							<input type="text" id="genre-search" class="form-control">
-							<br>
-							<div class="text-right">
-								<button class="btn btn-primary btn-md" id="genre-search-btn"><span class="glyphicon glyphicon-search"></span> Search</button>
-							</div>
-						</div>
-					</div> -->
-
-			<div class="panel panel-default">
-				
-						<h5>Resource Search Results</h5>
-
-						<!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-<div id="modal1" class="modal"></div> -->
-
-
-
-
-
-						<div class="panel-body" id="well-section">
-
-							<!-- Content will go in here -->
-	
-						</div>
-
-						<div class="panel-body">
-							<div class="well" id="stats">
-								<h2 id="title"></h2>
-							
-							</div>
-						</div>
-					
-				
-
+				</div>
 			</div>
+            </div>
+
+        </div>
+
+            <div class="container" id="well-section">
+
+                <!-- Content will go in here -->
+
+            </div>
+
+            <div class="container">
+                <div class="well" id="stats">
+                    <h2 id="title"></h2>
+
+                </div>
+            </div>
 
 
-
-
-			<!-- Custom Script -->
-			<script src="js/view.js" type="text/javascript"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!-- Custom Script -->
+        <script src="js/view.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 </body>
 

@@ -117,7 +117,7 @@ $.get("/api/all", function(data) {
       "<script>$(document).ready(function(){$('.collapsible').collapsible();}); </script>"+
       "<ul class='collapsible popout collapsible accordion' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
       "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
-      "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
+      "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Org. Email</th><th>Contact Email</th><th>Facebook</th></tr></thead><tbody><tr>"+
   
       "<td>" + data[i].street_address + "</td>"+
       "<td>"+ data[i].business_city + "</td>"+

@@ -41,6 +41,20 @@ module.exports = function (app) {
   // });
 
 
+  // Get all books from a specific ethnicity
+  app.get("/api/ethnicity/:ethnicity", function (req, res) {
+    if (req.params.ethnicity) {
+      db.resources_table.findAll({
+        where: {
+          ethnicity: req.params.ethnicity
+        }
+      }).then(function (results) {
+        res.json(results);
+      });
+    }
+  });
+
+
   // Get all resources of a specific category
   app.get("/api/:sub_category1", function (req, res) {
     if (req.params.sub_category1) {
@@ -54,18 +68,7 @@ module.exports = function (app) {
     }
   });
 
-  // Get all books from a specific ethnicity
-  app.get("/api/group/:ethnicity", function (req, res) {
-    if (req.params.ethnicity) {
-      db.resources_table.findAll({
-        where: {
-          ethnicity: req.params.ethnicity
-        }
-      }).then(function (results) {
-        res.json(results);
-      });
-    }
-  });
+
 
 
   // TODO: See the code below, this should be what the

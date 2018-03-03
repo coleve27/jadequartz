@@ -2,16 +2,12 @@ $(document).ready(function () {
   $('select').material_select();
   $('.collapsible').collapsible();
   $(".button-collapse").sideNav();
-  
 
   var content = '<div class="modal-content"><p>my content</p></div>';
-        
-        $('.modal').append(content);
-        $('.modal').modal();
+  $('.modal').append(content);
+  $('.modal').modal();
 
 });
-
-
 
 
 var options = {
@@ -38,10 +34,8 @@ lock.on("authenticated", function (authResult) {
     }
 
     document.getElementById('nick').textContent = profile.nickname;
-
     localStorage.setItem('idToken', authResult.idToken);
     localStorage.setItem('accessToken', authResult.accessToken);
-
     localStorage.setItem('profile', JSON.stringify(profile));
     // console.log(JSON.stringify(profile));
     console.log('hello');
@@ -51,24 +45,17 @@ lock.on("authenticated", function (authResult) {
       }
     });
 
-    // $.post("/api/login", authResult)
-    //   // On success, run the following code
-    //   .then(function (data) {
-    //     // Log the data we found
-    //     console.log(data);
-    //   });
- 
     lock.hide();
 
   });
 });
 
 var idToken = localStorage.getItem('idToken');
-  if(idToken){
-     lock.hide();
-    } else {
-      lock.show();
-    }
+if (idToken) {
+  lock.hide();
+} else {
+  lock.show();
+}
 
 
 
@@ -94,75 +81,38 @@ $("#search-btn").on("click", function (event) {
 
 });
 
-// When user hits the ethnicity
-// $("#search-btn").on("click", function() {
-//   console.log("this is selecting an ethnicity");
+$("#search-btn-ethnicity").on("click", function (event) {
+  event.preventDefault();
+  console.log("this is selecting an ethnicity");
 
-//   // Save the query they typed into the category-search input
-//   var categorySearched = $("#ethnicity").val();
+  // Save the resource they typed into the resource search input
+  var ethnicitySearched = $("#ethnicity").val();
 
-//   console.log("This is what is chosen: " +categorySearched);
+  console.log("This is what is chosen: " + ethnicitySearched);
 
-//   // Make an AJAX get request to our api, including the user's author in the url
-//   $.get("/api/" + categorySearched, function(data) {
+  // Make an AJAX get request to our api, including the user's resource in the url
+  $.get("/api/ethnicity/" + ethnicitySearched, function (data) {
 
-//     // Log the data to the console
-//     console.log(data);
-//     // Call our renderBooks function to add our books to the page
-//     renderResources(data);
+    console.log(data);
+    // Call our renderResources function to add our books to the page
+    renderResources(data);
 
-//   });
+  });
 
-// });
-
-
-
-// When user hits the genre-search-btn
-// $("#genre-search-btn").on("click", function() {
-//
-//   // Save the book they typed into the genre-search input
-//   var genreSearched = $("#genre-search").val().trim();
-//
-//   // Make an AJAX get request to our api, including the user's genre in the url
-//   $.get("/api/genre/" + genreSearched, function(data) {
-//
-//     console.log(data);
-//     // Call our renderBooks function to add our books to the page
-//     renderBooks(data);
-//
-//   });
-//
-// });
+});
 
 
 ///This will display the data found in the search page.
 function renderResources(data) {
   if (data.length !== 0) {
-
-   // $("#stats").empty();
-   // $("#stats").show();
-
+    $("#stats").empty();
+    $("#stats").show();
     for (var i = 0; i < data.length; i++) {
 
       var wellSection = $("<div>");
 
-      // $("#well-section").append(wellSection);
-
-      // wellSection.append(
-      //   "<a class='waves-effect waves-light btn modal-trigger' onclick='$('#modal1').modal('open');' href='#modal1'>Modal</a>" +
-      //   "<div id='modal1' class='modal modal-fixed-footer'>" +
-      //   "<div class='modal-content'>" +
-      //   "<h4>Modal Header</h4>" +
-      //   "<p>A bunch of text</p>" +
-      //   "</div>" +
-      //   "<div class='modal-footer'>" +
-      //   "<a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat '>Agree</a>" +
-      //   "</div></div>"
-      // );
-
-
       wellSection.append(
-        "<script>$(document).ready(function(){$('.collapsible').collapsible();}); </script>"+
+        "<script>$(document).ready(function(){$('.collapsible').collapsible();}); </script>" +
         "<ul class='collapsible popout collapsible-accordion' data-collapsible='accordion'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + ": " + data[i].sub_category1 + "</p></div>" +
         "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> " + data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" + data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity + "</p>" +
         "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>" +
@@ -190,8 +140,6 @@ function renderResources(data) {
         "<a class='delete waves-effect waves-light red btn' data-id='" + data[i].id + "'>DELETE RESOURCE</a></div></div>" +
         "</li></ul>");
 
-      // wellSection.append("<button class='delete' data-id='" + data[i].id + "'>DELETE RESOURCE</button>");
-
       $("#stats").append(wellSection);
 
     }
@@ -215,3 +163,5 @@ function renderResources(data) {
 
   }
 }
+
+
