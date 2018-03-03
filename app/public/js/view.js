@@ -161,7 +161,22 @@ function renderResources(data) {
 
     });
 
+    // update
+    $(".update").click(function () {
+      var info2 = {
+        id: $(this).attr("data-id")
+      };
+      $.put("/api/update", info2)
+        // On success, run the following code
+        .then(function (updateData) {
+          // Log the data we found
+          console.log(updateData);
+          console.log("This resource has been updated.");
+        });
+     $(this).closest("div").change();
+
+    });
+
   }
 }
-
 

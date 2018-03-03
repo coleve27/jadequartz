@@ -150,11 +150,11 @@ module.exports = function (app) {
     }, {
       where: {
         id: req.body.id
-      }.then(function (results) {
-        //res.json(results);
-        console.log(results);
-      })
-    });
+      }
+    }).then(function (results) {
+      //res.json(results);
+      console.log(results);
+    })
   });
 
   // Delete a book
