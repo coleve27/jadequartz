@@ -118,7 +118,7 @@ $.get("/api/all", function(data) {
       "<ul class='collapsible popout collapsible accordion' data-collapsible='accordian'><li><div class='collapsible-header'><p>" + (i + 1) + ". " + data[i].business_name + "</p></div>" +
       "<div class='collapsible-body'>" + "<p class='flow-text'> <h4>" + data[i].business_name + "</h4> "+ data[i].business_description + "</p>" + "<p> <b>Organization Type: </b>" +  data[i].sub_category1 + "</p>" + "<p><b> Ethnicity Represented: </b>" + data[i].ethnicity +"</p>"+
       "<table class = 'responsive-table'><div class='container'><thead><tr><th>Street Address</th><th>City</th><th>State</th><th>Org. Number</th><th>Email</th><th>Facebook</th><th>Email</th></tr></thead><tbody><tr>"+
-  
+
       "<td>" + data[i].street_address + "</td>"+
       "<td>"+ data[i].business_city + "</td>"+
       "<td>" + data[i].zip_code + "</td>"+
@@ -131,7 +131,7 @@ $.get("/api/all", function(data) {
      "<table class='responsive-table'>"+
      "<div class='container'><thead><tr><th>Contact Name</th><th>Title</th><th>Phone</th><th>Email</th></tr></thead>"+
      "<tbody><tr>"+
-     
+
      "<td>" + data[i].main_contact + "</td>"+
      "<td>"+ data[i].contact_title + "</td>"+
      "<td>" + data[i].contact_phone+ "</td>"+
@@ -161,27 +161,38 @@ $(".delete").click(function() {
 
 });
 
+
 $(".update").click(function() {
   var info = {
     id: $(this).attr("data-id")
-  };
-  $.post("/api/update", info)
-    // On success, run the following code
-    .then(function(updateData) {
-      // Log the data we found
-      console.log(updateData);
-      console.log("This resource has been updated.");
-    });
-  //$(this).closest("ul").remove();
+  }
 
-});
+  $.ajax({
+  method: "PUT",
+  url: "/api/update",
+  success: function(updateData){
+    console.log(updateData);
+    console.log("This resource has been updated.");
+    location.reload();
+  }
+})
 
-
-
-
-
-
-
+// .then(function(updateData) {
+//     // Log the data we found
+//     console.log(updateData);
+//     console.log("This resource has been updated.");
+//   });
+//
+//   $.put("/api/update", info)
+//     // On success, run the following code
+//     .then(function(updateData) {
+//       // Log the data we found
+//       console.log(updateData);
+//       console.log("This resource has been updated.");
+//     });
+//   //$(this).closest("ul").remove();
+//
+// });
 
 
 });
@@ -197,27 +208,27 @@ $(".update").click(function() {
 
 
 //do not delete this below
-// username:  
-// business_name: 
-// business_category: 
-// city_dept: 
-// sub_category1: 
-// sub_category2: 
+// username:
+// business_name:
+// business_category:
+// city_dept:
+// sub_category1:
+// sub_category2:
 // ethnicity:
-// ethnicity2: 
-// business_description: 
-// street_address: 
-// business_city: 
-// business_state: 
-// zip_code: 
-// phone_number: 
-// business_email: 
-// business_url: 
-// business_fb: 
-// main_contact: 
-// contact_title: 
-// contact_phone: 
-// contact_email: 
+// ethnicity2:
+// business_description:
+// street_address:
+// business_city:
+// business_state:
+// zip_code:
+// phone_number:
+// business_email:
+// business_url:
+// business_fb:
+// main_contact:
+// contact_title:
+// contact_phone:
+// contact_email:
 
 
 
@@ -252,3 +263,4 @@ if(idToken){
     }
   });
 }
+})
