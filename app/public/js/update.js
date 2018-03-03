@@ -42,7 +42,7 @@ $("#add-btn").on("click", function (event) {
     }
   });
   // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newResource)
+  $.put("/api/update")
     // On success, run the following code
     .then(function (data) {
       // Log the data we found
