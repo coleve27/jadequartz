@@ -55,8 +55,14 @@ lock.on("authenticated", function(authResult) {
   });
 });
 
+var idToken = localStorage.getItem('idToken');
+  if(idToken){
+     lock.hide();
+    } else {
+      lock.show();
+    }
 
-lock.show();
+
 
 
 
