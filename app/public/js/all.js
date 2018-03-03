@@ -331,7 +331,6 @@ $(".delete").click(function() {
 $(".update").click(function() {
   var info2 = {
     id: $(this).attr("data-id")
-<<<<<<< HEAD
   };
   $.put("/api/update", info2)
     // On success, run the following code
@@ -359,9 +358,6 @@ $(".update").click(function() {
 
 
 
-=======
-  }
->>>>>>> 565dfa15e20e5cddabe26fcc58ddce4332d0c1cf
 
   $.ajax({
   method: "PUT",
@@ -459,4 +455,4 @@ if(idToken){
     }
   });
 }
-})
+
