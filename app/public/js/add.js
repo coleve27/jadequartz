@@ -45,9 +45,12 @@ $("#add-btn").on("click", function (event) {
 
 
   };
+
+
+
   $.ajaxSetup({
     beforeSend: function(xhr) {
-      console.log(localStorage.getItem('idToken'));
+      //console.log(localStorage.getItem('idToken'));
       xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('idToken'));
     }
   });
