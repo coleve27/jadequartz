@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("app/public"));
+app.use(express.static("app/public", {extensions:['html']}));
 
 
 
